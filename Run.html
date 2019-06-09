@@ -19,7 +19,7 @@
                 gravity: 10,
                 highestFloor: 240,
                 speed: 5,
-                distanceTravelled: 0,
+                distanceTraveled: 0,
                 maxSpeed: 15,
                 tilesPassed: 0,
                 autoScroll: true,
@@ -33,7 +33,7 @@
                     for(index in this.floorTiles) {
                         var tile = this.floorTiles[index];
                         tile.x -= this.speed;
-                        this.distanceTravelled += this.speed;
+                        this.distanceTraveled += this.speed;
                     }
                 },
                 addFutureTiles: function() {
@@ -90,7 +90,7 @@
                     ctx.fillStyle = "white";
                     ctx.font = "28px Arial";
                     ctx.fillText("Speed: " + this.speed, 10, 40);
-                    ctx.fillText("Travelled: " + this.distanceTravelled, 10, 75);
+                    ctx.fillText("Traveled: " + this.distanceTraveled, 10, 75);
                 }
             };
             var player = {
