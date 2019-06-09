@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bob's Adventure</title>
+    </head>
+    <body>
+        <canvas id = "canvas" width = "640" height = "480"></canvas>
+        <script>
+            var game = {
+                timer: null,
+                finished: false,
+                controls: {},
+                sounds: {},
+                loop: function() {},
+                start: function() {},
+                stop: function() {}
+            };
+            var world = {
+                height: 480,
+                width: 640,
+                gravity: 10,
+                distanceTravelled: 0,
+                level: null,
+                collisionMap: null,
+                tickCount: 0,
+                enemies:[],
+                loadLevel: function() {},
+                getPixelType: function() {},
+                tick: function() {},
+                activateEnemies: function() {},
+                draw: function() {},
+            };
+            var player = {
+                character: new character(),
+                tick: function() {},
+                processControls: function() {},
+                draw: function() {},
+            };
+            function character() {}
+            function animation() {}
+            function enemy() {}
+        </script>
+        <a href = "index.html">Back to main page</a>
+    </body>
+</html>
