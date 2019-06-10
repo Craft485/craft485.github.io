@@ -46,7 +46,7 @@
                         }
                     }
                 },
-                loop: function() {
+                loop: function() {                  //game.loop is finished
                     if(this.finished) {
                         return;
                     }
@@ -54,12 +54,15 @@
                     world.draw();
                     player.tick();
                     player.draw();
+                    this.timer = setTimeout("game.loop()", 1000/60);
                 },
                 start: function() {
+                    this.backgroundMusic();
                     this.loop();
                 },
                 stop: function(reason) {
                     this.finished = true;
+                    window.clearTimeout(this.timer);
                 }
             };
             var world = {
@@ -73,9 +76,28 @@
                 enemies:[],
                 loadLevel: function() {
                     this.level = new Image();
-                    this.level.src = "levelImage.png";
+                    this.level.src = "BobsAdventure/levelImage";
+                    var collisionMapImage = new Image();
+                    collisionMapImage.onload = function (loadEvent) {
+                    var hiddenCanvas = document.createElement("CANVAS");
+                    hiddenCanvas.setAttribute("width", this.width);
+                    hiddenCanvas.setAttribute("height", this.height);
+                    world.collisionMap = hiddenCanvas.getContext("2d");
+                    world.collisionMap.drawImage(this, 0, 0);
+                    }
+                    //collisionMapImage.src = "" (needs B64 encrypted text, since its a massive block I'll wait to add it here and hope for no errors)
                 },
-                getPixelType: function() {},
+                getPixelType: function() {                  //getPixelType is done
+                    if (!this.collisionMap) {
+                        return ".";
+                    }
+                    var rawData = this.collisionMap.getImageData(x, y, 1, 1).data;
+                    var mask = rawData[0] + " " + rawData[1] + " " + rawData[2] + " " + rawData[3];
+                    if (mask == "255 0 0 255") return "pit";
+                    if (mask == "76 255 0 255") return "exit";
+                    if (mask == "255 255 255 255") return ".";
+                    if (mask == "0 0 0 255") return "#";
+                },
                 tick: function() {
                     this.loadLevel();
                 },
