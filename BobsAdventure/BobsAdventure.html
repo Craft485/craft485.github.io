@@ -21,7 +21,7 @@
                         68: "right" 
                     },
                     buttonPress: function(keyInfo) {
-                        
+
                     },
                     buttonRelease: function(keyInfo) {
 
@@ -30,15 +30,35 @@
 
                     }
                 },
-                sounds: {},
+                sounds: {                   //sounds property should be done
+                    enabled: true,
+                    jump: function() {
+                        this.play("meow.wav");
+                    },
+                    backgroundMusic: function() {
+                        this.play("background.mp3");
+                    },
+                    play: function(filename) {
+                        if(this.enabled) {
+                            new Audio("sounds/" + filename).play();
+                        }
+                    }
+                },
                 loop: function() {
+                    if(this.finished) {
+                        return;
+                    }
                     world.tick();
+                    world.draw();
                     player.tick();
+                    player.draw();
                 },
                 start: function() {
-                    loop();
+                    this.loop();
                 },
-                stop: function() {}
+                stop: function(reason) {
+                    this.finished = true;
+                }
             };
             var world = {
                 height: 480,
@@ -55,8 +75,7 @@
                 },
                 getPixelType: function() {},
                 tick: function() {
-                    world.draw();
-                    world.loadLevel();
+                    this.loadLevel();
                 },
                 activateEnemies: function() {},
                 draw: function() {
