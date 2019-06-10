@@ -5,7 +5,7 @@
     </head>
     <body>
         <canvas id = "canvas" width = "640" height = "480"></canvas>
-        <script>
+        <script type = "text/javascript">
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
             var game = {
@@ -29,7 +29,12 @@
 
                     },
                     connect: function(keyInfo) {
-
+                        window.addEventListener("keydown", function(keyInfo) {
+                            game.controls.buttonPress(event);
+                        }, false);
+                        window.addEventListener("keyup", function(keyInfo) {
+                            game.controls.buttonRelease(event);
+                        }, false);
                     }
                 },
                 sounds: {                   //sounds property should be done
@@ -56,8 +61,9 @@
                     player.draw();
                     this.timer = setTimeout("game.loop()", 1000/60);
                 },
-                start: function() {
-                    this.backgroundMusic();
+                start: function() {             //start function done
+                    this.controls.connect();
+                    this.sounds.backgroundMusic();
                     this.loop();
                 },
                 stop: function(reason) {
@@ -109,14 +115,22 @@
                 },
             };
             var player = {
-                character: new character(),
+                character: new character(160, 390, 25, 25,
+                new animation("graphics/cat", 5),
+                new animation("graphics/cat.backwards", 5)),
                 tick: function() {},
                 processControls: function() {},
-                draw: function() {},
+                draw: function() {this.character.draw(); },
             };
             function character() {}
             function animation() {}
-            function enemy() {}
+            function enemy() {
+                this.character = new character(x, y, 25, 25,
+                    new animation("graphics/tiger", 5),
+                    new animation("graphics/tiger.backwards", 5))
+                this.tick = function() { /* process enemy logic */},
+                this.draw = function() {this.character.draw(); }
+            }
             game.start();
         </script>
         <a href = "index.html">Back to main page</a>
