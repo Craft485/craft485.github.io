@@ -9,10 +9,35 @@
             var game = {
                 timer: null,
                 finished: false,
-                controls: {},
+                controls: {
+                    up: false,
+                    down: false,
+                    left: false,
+                    right: false,
+                    mapping: {
+                        87: "up",
+                        83: "down",
+                        65: "left",
+                        68: "right" 
+                    },
+                    buttonPress: function(keyInfo) {
+                        
+                    },
+                    buttonRelease: function(keyInfo) {
+
+                    },
+                    connect: function(keyInfo) {
+
+                    }
+                },
                 sounds: {},
-                loop: function() {},
-                start: function() {},
+                loop: function() {
+                    world.tick();
+                    player.tick();
+                },
+                start: function() {
+                    loop();
+                },
                 stop: function() {}
             };
             var world = {
@@ -24,11 +49,21 @@
                 collisionMap: null,
                 tickCount: 0,
                 enemies:[],
-                loadLevel: function() {},
+                loadLevel: function() {
+                    this.level = new Image();
+                    this.level.src = "levelImage.png";
+                },
                 getPixelType: function() {},
-                tick: function() {},
+                tick: function() {
+                    world.draw();
+                    world.loadLevel();
+                },
                 activateEnemies: function() {},
-                draw: function() {},
+                draw: function() {
+                    var drawAtX = this.distanceTravelled * -1;
+                    drawAtX = drawAtX > 0 ? 0 : drawAtX;
+                    ctx.drawImage(this.level, drawAtX, 0);
+                },
             };
             var player = {
                 character: new character(),
@@ -39,6 +74,7 @@
             function character() {}
             function animation() {}
             function enemy() {}
+            game.start();
         </script>
         <a href = "index.html">Back to main page</a>
     </body>
