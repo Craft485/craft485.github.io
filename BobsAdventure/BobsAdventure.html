@@ -47,7 +47,7 @@
                     },
                     play: function(filename) {
                         if(this.enabled) {
-                            new Audio("sounds/" + filename).play();
+                            new Audio("sounds/" + filename).play();  //".play();" is giving the error: Uncaught (in promise) DOMException
                         }
                     }
                 },
@@ -71,7 +71,7 @@
                     window.clearTimeout(this.timer);
                 }
             };
-            var world = {
+            var world = {               //world object should be done except the link for the collision map, see line 94 for reason
                 height: 480,
                 width: 640,
                 gravity: 10,
@@ -115,12 +115,12 @@
                 },
             };
             var player = {
-                character: new character(160, 390, 25, 25,
+                character: new character(160, 390, 25, 25, //the ending par is on line 120, I didn't forget anything here
                 new animation("graphics/cat", 5),
                 new animation("graphics/cat.backwards", 5)),
                 tick: function() {},
                 processControls: function() {},
-                draw: function() {this.character.draw(); },
+                draw: function() {this.character.draw(); }, //.draw() is giving an error| in this object(player), in the property(character), draw
             };
             function character() {}
             function animation() {}
@@ -129,10 +129,10 @@
                     new animation("graphics/tiger", 5),
                     new animation("graphics/tiger.backwards", 5))
                 this.tick = function() { /* process enemy logic */},
-                this.draw = function() {this.character.draw(); }
+                this.draw = function() {this.character.draw(); } 
             }
             game.start();
         </script>
-        <a href = "index.html">Back to main page</a>
+        <a href = "index.html">Back to main page</a> <!--gives a 404 error, thinks its due to UBlock on the browser, whitelist links to fix it?-->
     </body>
 </html>
