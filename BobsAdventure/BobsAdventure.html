@@ -148,10 +148,37 @@
                     this.applyMovement();
                 }
                 this.applyGravity = function() {
-
+                    if (this.isJumping()) {
+                        this.jumpHeight += (this.downwardForce * -1);
+                        if (this.jumpHeight >= this.height * 6) {
+                            this.downwardForce = world.gravity;
+                            this.jumpHeight = 0;
+                        }
+                    } else {
+                        if (this.standingOnAPlatform()) {
+                            this.downwardForce = 0;
+                        } else {
+                            this.downwardForce = world.gravity;
+                        }
+                    }
                 }
                 this.applyMovement = function() {
-
+                    var nextX = this.x + this.speed;
+                    var nextY = this.y + this.downwardForce;
+                    var nextLeadingX = this.leadingEdge() + this.speed;
+                    var walkingIntoSurface = world.isSolidSurface(nextLeadingX, this.y);
+                    if (this.isMoving() && walkingIntoSurface) {
+                        nextX = this.x;
+                        this.speed = 0;
+                    }
+                    var topLeftIsSolid = world.isSolidSurface(this.leadingEdge(), this.y);
+                    var topRightIsSolid = world.isSolidSurface(this.trailingEdge(), this.y);
+                    if ((topLeftIsSolid || topRightIsSolid) && this.isJumping()) {
+                        this.downwardForce = world.gravity;
+                        this.jumpHeight = 0;
+                    }
+                    this.x = nextX;
+                    this.y = nextY;
                 }
                 this.bottom = function() {
                     return this.y + this.height;
@@ -176,13 +203,34 @@
                         world.isSolidSurface(this.trailingEdge(), this.bottom() + 1);
                 }
                 this.draw = function() {
-
+                    if (!this.runningSprite) {
+                        return;
+                    }
+                    var drawAtX = this.x - world.distanceTravelled;
+                    drawAtX = drawAtX > this.x ? this.x : drawAtX;
+                    if (world.atLevelEnd()) {
+                        drawAtX = (world.width - (world.level.width - world.distanceTravelled - (this.x - world.distanceTravelled)));
+                    }
+                    var sprite = this.speed < 0 ? this.runningSpriteReversed : this.runningSprite;
+                    if (this.isJumping() || this.isFalling()) {
+                        sprite.drawFrame(4, drawAtX, this.y, this.height, this.width);
+                    } else if (this.isMoving()) {
+                        sprite.draw(world.tickCount, drawAtX, this.y, this.height, this.width);
+                    } else {
+                        sprite.drawFrame(1, drawAtX, this.y, this.height, this.width);
+                    }
                 }
                 this.collidesWith = function(other) {
-
+                    if (this.x >= other.x &&
+                    this.x <= other.x + other.width &&
+                    this.y >= other.y &&
+                    this.y <= other.y + other.height) {
+                        return true;
+                    }
+                    return false;
                 }
             }
-            function animation() {}
+            function animation(filename, frameCount) {}
             function enemy(x, y) {
                 this.character = new character(x, y, 25, 25,
                     new animation("graphics/tiger", 5),
