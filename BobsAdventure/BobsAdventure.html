@@ -236,7 +236,25 @@
                     return false;
                 }
             } //97 lines for 1 function!
-            function animation(filename, frameCount) {}
+            function animation(filename, frameCount) {      //animation function should be done
+                this.frames = [];
+                this.currentFrameId = 1;
+                for (var frameId = 1; frameId <= frameCount; frameId++) {
+                    var frame = new Image();
+                    frame.src = filename + "." + frameId + ".png";
+                    this.frames[frameId] = frame;
+                }
+                this.draw = function(tickCount, x, y, height, width) {
+                    if (tickCount % 5 == 0) {
+                        this.currentFrameId++;
+                    }
+                    this.currentFrameId = this.currentFrameId >= this.frames.length ? 1 : this.currentFrameId;
+                    this.drawFrame(this.currentFrameId, x, y, height, width);
+                }
+                this.drawFrame = function(frameNumber, x, y, height, width) {
+                    ctx.drawImage(this.frames[frameNumber], x, y, width,height);
+                }
+            }
             function enemy(x, y) {
                 this.character = new character(x, y, 25, 25,
                     new animation("graphics/tiger", 5),
