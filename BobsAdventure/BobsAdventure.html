@@ -82,7 +82,7 @@
                 enemies:[],
                 loadLevel: function() {
                     this.level = new Image();
-                    this.level.src = "BobsAdventure/levelImage";
+                    this.level.src = "/levelImage";
                     var collisionMapImage = new Image();
                     collisionMapImage.onload = function (loadEvent) {
                     var hiddenCanvas = document.createElement("CANVAS");
@@ -124,7 +124,7 @@
             };
             function character() {}
             function animation() {}
-            function enemy() {
+            function enemy(x, y) {
                 this.character = new character(x, y, 25, 25,
                     new animation("graphics/tiger", 5),
                     new animation("graphics/tiger.backwards", 5))
