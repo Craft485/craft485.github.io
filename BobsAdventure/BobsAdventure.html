@@ -119,6 +119,12 @@
                     this.loadLevel();
                 },
                 activateEnemies: function() {},
+                levelEndOffset: function() {
+                    return this.level.width - this.width;
+                },
+                atLevelEnd: function() {
+                    return this.distanceTravelled >= this.levelEndOffset();
+                },
                 draw: function() {
                     var drawAtX = this.distanceTravelled * -1;
                     drawAtX = drawAtX > 0 ? 0 : drawAtX;
@@ -133,7 +139,7 @@
                 processControls: function() {},
                 draw: function() {this.character.draw(); }, //.draw() is giving an error| in this object(player), in the property(character), draw
             };
-            function character(x, y, width, height, runningSprite, reverseSprite) {
+            function character(x, y, width, height, runningSprite, reverseSprite) {     //character function should be done
                 this.x = x;
                 this.y = y;
                 this.height = height;
@@ -229,7 +235,7 @@
                     }
                     return false;
                 }
-            }
+            } //97 lines for 1 function!
             function animation(filename, frameCount) {}
             function enemy(x, y) {
                 this.character = new character(x, y, 25, 25,
