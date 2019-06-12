@@ -48,7 +48,7 @@
                     play: function(filename) {
                         if(this.enabled) {
                             new Audio("sounds/" + filename).play();  //".play();" is giving the error: Uncaught (in promise) DOMException
-                        }
+                        } //going to try using a button perhaps? or try using promises 
                     }
                 },
                 loop: function() {                  //game.loop is finished
@@ -93,6 +93,17 @@
                     }
                     //collisionMapImage.src = "" (needs B64 encrypted text, since its a massive block I'll wait to add it here and hope for no errors)
                 },
+                getFloorBelowY: function() {
+                    for(var tempY = y; tempY <= world.height; tempY++) {
+                        if (this.isSolidSurface(x, tempY)) {
+                            return tempY;
+                        }
+                    }
+                    return 0;
+                },
+                isSolidSurface: function(x, y) {
+                    return this.getPixelType(x, y) == "#";
+                },
                 getPixelType: function() {                  //getPixelType is done
                     if (!this.collisionMap) {
                         return ".";
@@ -122,7 +133,55 @@
                 processControls: function() {},
                 draw: function() {this.character.draw(); }, //.draw() is giving an error| in this object(player), in the property(character), draw
             };
-            function character() {}
+            function character(x, y, width, height, runningSprite, reverseSprite) {
+                this.x = x;
+                this.y = y;
+                this.height = height;
+                this.width = width;
+                this.speed = 0;
+                this.downwardForce = 0;
+                this.jumpHeight = 0;
+                this.runningSprite = runningSprite;
+                this.runningSpriteReversed = reverseSprite;
+                this.tick = function() {
+                    this.applyGravity();
+                    this.applyMovement();
+                }
+                this.applyGravity = function() {
+
+                }
+                this.applyMovement = function() {
+
+                }
+                this.bottom = function() {
+                    return this.y + this.height;
+                }
+                this.isJumping = function() {
+                    return this.downwardForce < 0;
+                }
+                this.isFalling = function() {
+                    return this.downwardForce > 0;
+                }
+                this.isMoving = function() {
+                    return this.speed != 0;
+                }
+                this.leadingEdge = function() {
+                    return this.speed < 0 ? this.x : this.x + this.width;
+                }
+                this.trailingEdge = function() {
+                    return this.speed < 0 ? this.x : this.x +  this.width;
+                }
+                this.standingOnAPlatform = function() {
+                    return world.isSolidSurface(this.leadingEdge(), this.bottom() + 1) ||
+                        world.isSolidSurface(this.trailingEdge(), this.bottom() + 1);
+                }
+                this.draw = function() {
+
+                }
+                this.collidesWith = function(other) {
+
+                }
+            }
             function animation() {}
             function enemy(x, y) {
                 this.character = new character(x, y, 25, 25,
