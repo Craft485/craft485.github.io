@@ -23,10 +23,10 @@
                         68: "right" 
                     },
                     buttonPress: function(keyInfo) {
-
+                        this[this.mapping[keyInfo.keyCode]] = true;
                     },
                     buttonRelease: function(keyInfo) {
-
+                        this[this.mapping[keyInfo.keyCode]] = false;
                     },
                     connect: function(keyInfo) {
                         window.addEventListener("keydown", function(keyInfo) {
@@ -69,6 +69,7 @@
                 stop: function(reason) {
                     this.finished = true;
                     window.clearTimeout(this.timer);
+                    alert(reason == "win" ? "You won!" : "You lost!");
                 }
             };
             var world = {               //world object should be done except the link for the collision map, see line 94 for reason
@@ -116,9 +117,25 @@
                     if (mask == "0 0 0 255") return "#";
                 },
                 tick: function() {
-                    this.loadLevel();
+                    if (!this.level) {
+                        this.loadLevel();
+                        this.enemies.push(new enemy(500, 100));
+                        this.enemies.push(new enemy(2000, 100));
+                        this.enemies.push(new enemy(3700, 100));
+                        this.enemies.push(new enemy(4000, 100));
+                        this.enemies.push(new enemy(5600, 100));
+                        this.enemies.push(new enemy(6500, 100));
+                        this.enemies.push(new enemy(7600, 100));
+                    }
+                    this.distanceTravelled += player.character.speed;
+                    this.tickCount++;
+                    this.activateEnemies();
                 },
-                activateEnemies: function() {},
+                activateEnemies: function() {
+                    for (var i = 0; i < this.enemies.length; i++) {
+                        this.enemies[i].tick();
+                    }
+                },
                 levelEndOffset: function() {
                     return this.level.width - this.width;
                 },
@@ -128,7 +145,11 @@
                 draw: function() {
                     var drawAtX = this.distanceTravelled * -1;
                     drawAtX = drawAtX > 0 ? 0 : drawAtX;
+                    drawAtX = this.atLevelEnd() ? this.levelEndOffset() * -1 : drawAtX;
                     ctx.drawImage(this.level, drawAtX, 0);
+                    for (var i = 0; i < this.enemies.length; i++) {
+                        this.enemies[i].draw();
+                    }
                 },
             };
             var player = {
