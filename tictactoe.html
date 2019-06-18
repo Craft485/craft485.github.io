@@ -32,8 +32,15 @@
             <div onclick="place(this)"></div>
         </div>
         <script>
+            var currentPlayer = "O";
             function place(box) {
-                alert("You clicked here!");
+                box.innerText = currentPlayer;
+                if(currentPlayer == "O") {
+                    currentPlayer = "X";
+                }
+                else {
+                    currentPlayer = "O";
+                }
             }
         </script>
     </body>
