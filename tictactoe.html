@@ -40,13 +40,36 @@
                 checkGameBoard();
             }
             function checkGameBoard() {
-                var first = document.getElementById("0_0").innerText;
-                var second = document.getElementById("1_0").innerText;
-                var thrid = document.getElementById("2_0").innerText;
-                if(first == "") return;
+                for(var i = 0; i <= 2; i++) {
+                    var first = document.getElementById("0_" + i).innerText;
+                    var second = document.getElementById("1_" + i).innerText;
+                    var thrid = document.getElementById("2_" + i).innerText;
+                    if(first == "") continue;
                     if(first == second && first == thrid) {
                         alert("Winner!");
                     }
+                }
+                for(var i = 0; i <= 2; i++) {
+                    var first = document.getElementById(i + "_0").innerText;
+                    var second = document.getElementById(i + "_1").innerText;
+                    var thrid = document.getElementById(i + "_2").innerText;
+                    if(first == "") continue;
+                    if(first == second && first == thrid) {
+                        alert("Winner!");
+                    }
+                }
+                var firstD1 = document.getElementById("0_0").innerText;
+                var secondD1 = document.getElementById("1_1").innerText;
+                var thirdD1 = document.getElementById("2_2").innerText;
+                if(firstD1 != "" && firstD1 == secondD1 && firstD1 == thirdD1) {
+                    alert("Winner!")
+                }
+                var firstD2 = document.getElementById("0_2").innerText;
+                var secondD2 = document.getElementById("1_1").innerText;
+                var thirdD2 = document.getElementById("2_0").innerText;
+                if(firstD2 != "" && firstD2 == secondD2 && firstD2 == thirdD2) {
+                    alert("Winner")
+                }
             }
         </script>
     </body>
