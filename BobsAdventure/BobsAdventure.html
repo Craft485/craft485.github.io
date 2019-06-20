@@ -4,6 +4,7 @@
         <title>Bob's Adventure</title>
     </head>
     <body>
+        <input id="start" type="button" value="start" onclick="game.start()"/>
         <canvas id = "canvas" width = "640" height = "480"></canvas>
         <script type = "text/javascript">
             var canvas = document.getElementById("canvas");
@@ -283,7 +284,7 @@
                 this.tick = function() { /* process enemy logic */},
                 this.draw = function() {this.character.draw(); } 
             }
-            game.start();
+            //removed game.start, used <input/> to start
         </script>
         <a href = "index.html">Back to main page</a> <!--gives a 404 error, thinks its due to UBlock on the browser, whitelist links to fix it?-->
     </body>
