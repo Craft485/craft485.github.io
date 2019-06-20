@@ -153,7 +153,7 @@
                     }
                 },
             };
-            var player = {
+            var player = { //player object done
                 character: new character(160, 390, 25, 25, //the ending par is on line 120, I didn't forget anything here
                 new animation("graphics/cat", 5),
                 new animation("graphics/cat.backwards", 5)),
@@ -281,8 +281,22 @@
                 this.character = new character(x, y, 25, 25,
                     new animation("graphics/tiger", 5),
                     new animation("graphics/tiger.backwards", 5))
-                this.tick = function() { /* process enemy logic */},
-                this.draw = function() {this.character.draw(); } 
+                this.tick = function() {
+                    var distanceFromPlayer = Math.abs(player.character.x - this.character.x);
+                    if (distanceFromPlayer <= world.width * 2) {
+                        this.character.speed = 2;
+                        if (player.character.x < this.character.x) {
+                            this.character.speed *= -1;
+                        }
+                        if (this.character.collidesWith(player.character)) {
+                            game.stop();
+                        }
+                        this.character.tick();
+                    }
+                },
+                this.draw = function() {
+                    this.character.draw(); 
+                } 
             }
             //removed game.start, used <input/> to start
         </script>
