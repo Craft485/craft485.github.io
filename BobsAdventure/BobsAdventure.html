@@ -224,7 +224,7 @@
                     return this.speed < 0 ? this.x : this.x + this.width;
                 }
                 this.trailingEdge = function() {
-                    return this.speed < 0 ? this.x : this.x +  this.width;
+                    return this.speed < 0 ? this.x + this.width : this.x; //may need rework
                 }
                 this.standingOnAPlatform = function() {
                     return world.isSolidSurface(this.leadingEdge(), this.bottom() + 1) ||
