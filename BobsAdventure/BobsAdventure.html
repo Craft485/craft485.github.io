@@ -106,7 +106,7 @@
                 isSolidSurface: function(x, y) {
                     return this.getPixelType(x, y) == "#";
                 },
-                getPixelType: function() {                  //getPixelType is done
+                getPixelType: function(x, y) {                  //getPixelType is done
                     if (!this.collisionMap) {
                         return ".";
                     }
