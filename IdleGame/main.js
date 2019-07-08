@@ -35,23 +35,13 @@ function UU() { //UU: Upgrade Update block
         U2.show(U2.name);
     }
 }
-/*function SchevCheck() {
-    var Q = S1.special();
-    if(Q == 42 && S1.owned == false) {
-        BX.owned = 501;
-        S1.earn();
-    }
-    var Q = S2.special();
-    if( ) {
-        BX.owned = 9999999999;
-        S2.earn();
-    }
-}*/
+
 function chevCheck() {  //checks req for chevs
     C1.earn();
     C2.earn();
 
-    //SchevCheck();
+    S1.earn(0);
+    S2.earn(1);
 }
 function loop() { //loop block
     credits += CPS;
