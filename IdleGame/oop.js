@@ -10,7 +10,6 @@ class Building { constructor(name, cost, owned=0, factor=1) {
                 this.owned++;
                 CPS += this.factor;
                 this.cost += Math.round(0.25 * this.cost);
-                document.getElementById("CPS").innerHTML = "Credits per Second: " + CPS;
                 document.getElementById("Credits").innerHTML = credits + " " + "Credits";
                 console.log("bought building: " + this.name);
             }
@@ -32,7 +31,6 @@ class Upgrade { constructor(name, cost, preReq, preReqAmount, effect) {
                 this.owned = true;
                 this.remove(this.name);
                 document.getElementById("Credits").innerHTML = credits + " " + "Credits";
-                document.getElementById("CPS").innerHTML = "Credits per Second: " + CPS;
                 console.log("upgrade bought: " + this.name);
             }
         }

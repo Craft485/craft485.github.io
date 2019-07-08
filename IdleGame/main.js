@@ -8,22 +8,22 @@ function BU() { //BU: Building Update block
     if(B0.owned > 0) {
         document.getElementById("B0Cost").innerHTML = "Cost: " + B0.cost;
         document.getElementById("B0Owned").innerHTML = "Owned: " + B0.owned;
-        document.getElementById("CPS").innerHTML = "Credits per Second: " + CPS;
     }
     if(B1.owned > 0) {
         document.getElementById("B1Cost").innerHTML = "Cost: " + B1.cost;
         document.getElementById("B1Owned").innerHTML = "Owned: " + B1.owned;
-        document.getElementById("CPS").innerHTML = "Credits per Second: " + CPS;
     }
     if(B2.owned > 0) {
         document.getElementById("B2Cost").innerHTML = "Cost: " + B2.cost;
         document.getElementById("B2Owned").innerHTML = "Owned: " + B2.owned;
-        document.getElementById("CPS").innerHTML = "Credits per Second: " + CPS;
     }
     if(B3.owned > 0) {
         document.getElementById("B3Cost").innerHTML = "Cost: " + B3.cost;
         document.getElementById("B3Owned").innerHTML = "Owned: " + B3.owned;
-        document.getElementById("CPS").innerHTML = "Credits per Second: " + CPS;
+    }
+    if(B4.owned >0) {
+        document.getElementById("B4Cost").innerHTML = "Cost: " + B4.cost;
+        document.getElementById("B4Owned").innerHTML =  "Owned: " + B4.owned;
     }
 }
 function UU() { //UU: Upgrade Update block
