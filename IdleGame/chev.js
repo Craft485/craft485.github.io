@@ -47,8 +47,8 @@ class Chev {constructor(name, req, reqAmount) {
 }
 //normal chevs
 var C1 = new Chev("C1", B1, 5);
-var C2 = new Chev("C2", B2, 5);
-var C3 = new Chev("C2", B4, 100);
+var C2 = new Chev("C2", B1, 50);
+var C3 = new Chev("C2", B1, 100);
 //special chevs
 var S1 = new Chev("S1", BX, 9999); //1 in 500 every second to get
-var S2 = new Chev("S2", BX, 9999);
+var S2 = new Chev("S2", BX, 9999); //1Bill credits
