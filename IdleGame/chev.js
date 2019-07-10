@@ -18,7 +18,7 @@ class Chev {constructor(name, req, reqAmount) {
             var node = document.getElementById(name);
             var d = document.createAttribute("style");
             d.value = "visibility: visible";
-            node.setAttributeNode(d); //document.getElementById(name).createAttribute("style").value = "visibility: hidden";
+            node.setAttributeNode(d);
         }
         this.sEarn = function() {
             this.owned = true;
