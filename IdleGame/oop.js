@@ -35,12 +35,12 @@ class Upgrade { constructor(name, cost, preReq, preReqAmount, effect) {
             }
         }
         this.remove = function(name) {
-            let parent = document.getElementById("upgrades"); //n
+            //let parent = document.getElementById("upgrades");
             var node = document.getElementById(name);
-            //var d = document.createAttribute("style");
-            //d.value = "visibility: hidden";
-            //node.setAttributeNode(d);
-            parent.removeChild(node); //n
+            var d = document.createAttribute("style");
+            d.value = "visibility: hidden";
+            node.setAttributeNode(d);
+            //parent.removeChild(name);
         }
         this.show = function(name) {
             var node = document.getElementById(name);
