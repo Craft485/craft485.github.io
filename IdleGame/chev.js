@@ -16,30 +16,34 @@ class Chev {constructor(name, req, reqAmount) {
         }
         this.show = function(name) {
             var node = document.getElementById(name);
+            console.log('name:' + name);
+            console.log('node: ' + node); //node returns null
             var d = document.createAttribute("style");
             d.value = "visibility: visible";
             node.setAttributeNode(d);
         }
-        this.sEarn = function() {
+        this.sEarn = function(name) {
             this.owned = true;
             this.show(name);
             alert("Shadow chev earned: " + this.name);
         }
-        this.special = function(number) {
-            this.number = number;
+        this.special = function(name) {
+            this.name = name;
+            S1.sEarn(name);
+            // this.number = number;
             if(this.number == 0 && this.owned == false) {
                 var max = Math.ceil(500);
                 var min = Math.floor(1);
                 var z = Math.floor(Math.random() * (max - min + 1) + min); 
                 if(z = 42) {
                     BX.owned = 99999;
-                    S1.sEarn();
+                    S1.sEarn(this.name);
                 }
             }
             if(this.number == 1 && this.owned != true) {
                 if(credits >= 1000000000) {
                     BX.owned = 9999;
-                    S2.sEarn()
+                    S2.sEarn(name)
                 }
             }
         }
