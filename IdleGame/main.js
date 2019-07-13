@@ -39,8 +39,8 @@ function UU() { //UU: Upgrade Update block
 function chevCheck() {  //checks req for chevs
     C1.earn(name);
     C2.earn(C2.name);
-    //S1.special(S1.name);
-    //S2.special(S2.name, 1);
+    S1.special(0);
+    S2.special(1);
 }
 function loop() { //loop block
     credits += CPS;
