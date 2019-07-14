@@ -9,9 +9,9 @@ function BU() { //BU: Building Update block
         document.getElementById("B0Cost").innerHTML = "Cost: " + B0.cost;
         document.getElementById("B0Owned").innerHTML = "Owned: " + B0.owned;
     }
-    if(B1.owned > 0) {
-        document.getElementById("B1Cost").innerHTML = "Cost: " + B1.cost;
-        document.getElementById("B1Owned").innerHTML = "Owned: " + B1.owned;
+    if(Calculator.owned > 0) {
+        document.getElementById("CalculatorCost").innerHTML = "Cost: " + Calculator.cost;
+        document.getElementById("CalculatorOwned").innerHTML = "Owned: " + Calculator.owned;
     }
     if(B2.owned > 0) {
         document.getElementById("B2Cost").innerHTML = "Cost: " + B2.cost;

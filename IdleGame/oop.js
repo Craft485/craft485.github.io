@@ -53,10 +53,10 @@ class Upgrade { constructor(name, cost, preReq, preReqAmount, effect) {
 var BX = new Building("BX", 999999, 0, 0);
 //buildings
 var B0 = new Building("B0", 20, 0, 1);
-var B1 = new Building("B1", 50, 0, 3);
+var Calculator = new Building("Calculator", 50, 0, 3);
 var B2 = new Building("B2", 80, 0, 5);
 var B3 = new Building("B3", 110, 0, 7);
 var B4 = new Building("B4", 200, 0, 20);
 //upgrades
-var U1 = new Upgrade("U1", 100, B1, 10, 2);
-var U2 = new Upgrade("U2", 150, B1, 15, 2);
+var U1 = new Upgrade("U1", 100, Calculator, 10, 2);
+var U2 = new Upgrade("U2", 150, Calculator, 15, 2);
