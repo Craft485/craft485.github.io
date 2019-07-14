@@ -5,9 +5,9 @@ function addCredit() {
     document.getElementById("Credits").innerHTML = credits + " Credits";
 }
 function BU() { //BU: Building Update block
-    if(B0.owned > 0) {
-        document.getElementById("B0Cost").innerHTML = "Cost: " + B0.cost;
-        document.getElementById("B0Owned").innerHTML = "Owned: " + B0.owned;
+    if(BinarySystem.owned > 0) {
+        document.getElementById("BinarySystemCost").innerHTML = "Cost: " + BinarySystem.cost;
+        document.getElementById("BinarySystemOwned").innerHTML = "Owned: " + BinarySystem.owned;
     }
     if(Calculator.owned > 0) {
         document.getElementById("CalculatorCost").innerHTML = "Cost: " + Calculator.cost;
