@@ -54,7 +54,7 @@ var BX = new Building("BX", 999999, 0, 0);
 //buildings
 var BinarySystem = new Building("BinarySystem", 20, 0, 1);
 var Calculator = new Building("Calculator", 50, 0, 3);
-var B2 = new Building("B2", 80, 0, 5);
+var CM = new Building("Computer Mouse", 80, 0, 5);
 var B3 = new Building("B3", 110, 0, 7);
 var B4 = new Building("B4", 200, 0, 20);
 //upgrades

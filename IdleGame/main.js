@@ -13,9 +13,9 @@ function BU() { //BU: Building Update block
         document.getElementById("CalculatorCost").innerHTML = "Cost: " + Calculator.cost;
         document.getElementById("CalculatorOwned").innerHTML = "Owned: " + Calculator.owned;
     }
-    if(B2.owned > 0) {
-        document.getElementById("B2Cost").innerHTML = "Cost: " + B2.cost;
-        document.getElementById("B2Owned").innerHTML = "Owned: " + B2.owned;
+    if(CM.owned > 0) {
+        document.getElementById("CMCost").innerHTML = "Cost: " + CM.cost;
+        document.getElementById("CMOwned").innerHTML = "Owned: " + CM.owned;
     }
     if(B3.owned > 0) {
         document.getElementById("B3Cost").innerHTML = "Cost: " + B3.cost;
