@@ -23,7 +23,10 @@
                 height: 600,
                 width: 697,
                 draw: function() {
-
+                    ctx.fillStyle = "black"
+                    ctx.fillRect(0, 0, this.width, this.height)
+                    ctx.fillStyle = "blue"
+                    ctx.fillRect(tile.x, y, tile.width, tile.height)
                 }
             }
             var player = {
