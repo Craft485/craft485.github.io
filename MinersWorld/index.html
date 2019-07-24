@@ -6,8 +6,8 @@
     </head>
     <body>
         <input type="button" value="start" onclick="loop()"/>
-        <canvas id="canvas"></canvas>
-        <script>
+        <canvas id="canvas" width="697" height="625"></canvas>
+        <script type="text/Javascript">
             function setDiff() {
                 var diff1 = document.createElement("button")
                 diff1.innerHTML = "Mode: easy(no monsters)"
@@ -15,16 +15,13 @@
                 document.body.appendChild(diff1)
             }
             var canvas = document.getElementById("canvas")
-            canvas.width = $(window).width()
-            console.log(canvas.width)
-            canvas.height = 630
             var ctx = canvas.getContext("2d")
             var isNight = false
             var isDay = true
             var difficulty
             var world = {
-                height: 630,
-                width: 300,
+                height: 625,
+                width: 697,
                 draw: function() {
 
                 }
