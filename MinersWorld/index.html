@@ -6,7 +6,7 @@
     </head>
     <body class="body" id="body">
         <input id="buttonStart" type="button" value="start" onclick="start()"/>
-        <canvas id="canvas" width="1400" height="600"></canvas>
+        <canvas id="canvas" width="1350" height="600"></canvas>
         <script type="text/Javascript">
             function start() {
                 var e = document.getElementById("buttonStart")
@@ -26,7 +26,7 @@
             var difficulty
             var world = {
                 height: 600,
-                width: 1400,
+                width: 1350,
                 draw: function() {
                     ctx.fillStyle = "black"
                     ctx.fillRect(0, 0, this.width, this.height)
