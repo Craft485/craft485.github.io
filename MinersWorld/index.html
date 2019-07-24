@@ -4,10 +4,15 @@
         <title>Minersworld</title>
         <style></style>
     </head>
-    <body>
-        <input type="button" value="start" onclick="loop()"/>
+    <body class="body" id="body">
+        <input id="buttonStart" type="button" value="start" onclick="start()"/>
         <canvas id="canvas" width="697" height="600"></canvas>
         <script type="text/Javascript">
+            function start() {
+                var e = document.getElementById("buttonStart")
+                body.removeChild(e)
+                loop()
+            }
             function setDiff() {
                 var diff1 = document.createElement("button")
                 diff1.innerHTML = "Mode: easy(no monsters)"
@@ -21,7 +26,7 @@
             var difficulty
             var world = {
                 height: 600,
-                width: 700,
+                width: 1400,
                 draw: function() {
                     ctx.fillStyle = "black"
                     ctx.fillRect(0, 0, this.width, this.height)
