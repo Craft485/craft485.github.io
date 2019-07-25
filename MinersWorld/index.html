@@ -13,6 +13,11 @@
                 body.removeChild(e)
                 loop()
             }
+            function floor(x, height) {
+                this.x = x
+                this.width = 50
+                this.height = height
+            }
             function setDiff() {
                 var diff1 = document.createElement("button")
                 diff1.innerHTML = "Mode: easy(no monsters)"
@@ -27,11 +32,15 @@
             var world = {
                 height: 600,
                 width: 1300,
+                newTile = [
+                    new floor(0, 50)
+                ]
                 draw: function() {
                     ctx.fillStyle = "black"
                     ctx.fillRect(0, 0, this.width, this.height)
                     ctx.fillStyle = "blue"
                     ctx.fillRect(tile.x, y, tile.width, tile.height)
+                    
                 }
             }
             var player = {
