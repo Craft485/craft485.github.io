@@ -13,8 +13,9 @@
                 body.removeChild(e)
                 loop()
             }
-            function floor(x, height) {
+            function floor(x, y, height) {
                 this.x = x
+                this.y = y
                 this.width = 50
                 this.height = height
             }
@@ -33,13 +34,13 @@
                 height: 600,
                 width: 1300,
                 newTile = [
-                    new floor(0, 50)
+                    new floor(0, 0, 50)
                 ]
                 draw: function() {
                     ctx.fillStyle = "black"
                     ctx.fillRect(0, 0, this.width, this.height)
                     ctx.fillStyle = "blue"
-                    ctx.fillRect(tile.x, y, tile.width, tile.height)
+                    ctx.fillRect(tile.x, tile.y, tile.width, tile.height)
                     
                 }
             }
