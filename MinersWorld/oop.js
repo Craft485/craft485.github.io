@@ -1,11 +1,17 @@
-class tile{constructor(name, path){
+class tile{constructor(name, path, drop){
     this.name = name
     this.path = path
+    this.drop = drop
+    
 }}
+var grass = new tile("grass", 'assets\tiles\GrassTile.png', dirt)
 
-class items{constructor(name) {
+class items{constructor(name, icon) {
     this.name = name
+    this.icon = icon
+
 }}
+var dirt = new items("dirt", 'assets\tiles\GrassTile.png')
 
 class armor{constructor(name, defense, effect=null){
     this.name = name
@@ -16,7 +22,6 @@ class armor{constructor(name, defense, effect=null){
 class weapon{constructor(name){
     this.name = name
 }}
-
 var woodSword = new weapon("woodSword")
 
 class enemy{constructor(name, health, rate, lootTable){
