@@ -9,8 +9,8 @@ function addCredit() {
 }
 function addQC() {
     if(credits>=qcReq) {
-        qc++
-        document.getElementById("qcAmountDisplay").innerHTML = qc
+        qc++;
+        document.getElementById("qcAmountDisplay").innerHTML = qc;
     }
 }
 function pres() {
