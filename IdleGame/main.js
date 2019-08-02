@@ -1,9 +1,32 @@
-var credits = 0; //dev values
+var credits = 0; 
+var totalCreds = 0;
+var qc = 0;
+var qcReq=100000000;
 var CPS = 0; //Credits Per Second
 function addCredit() {
     credits++;
     document.getElementById("Credits").innerHTML = credits + " Credits";
 }
+function addQC() {
+    if(credits>=qcReq) {
+        qc++
+        document.getElementById("qcAmountDisplay").innerHTML = qc
+    }
+}
+function pres() {
+    credits=0
+    CPS=0
+    CPS += qc*(Math.floor(credits/2))
+    BinarySystem.owned=0
+    Calculator.owned=0
+    CM.owned=0
+}
+function tryPres() {
+    if(qc>0) {
+        pres()
+    }
+}
+
 function BU() { //BU: Building Update block
     if(BinarySystem.owned > 0) {
         document.getElementById("BinarySystemCost").innerHTML = "Cost: " + BinarySystem.cost;
@@ -44,9 +67,11 @@ function chevCheck() {  //checks req for chevs
 }
 function loop() { //loop block
     credits += CPS;
+    totalCreds += credits;
     BU();
     UU();
     chevCheck();
+    addQC()
     document.getElementById("Credits").innerHTML = credits + " Credits";
     document.getElementById("CPS").innerHTML = "Credits per Second: " + CPS;
     window.setTimeout("loop()", 1000);

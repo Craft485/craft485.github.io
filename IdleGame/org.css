@@ -20,3 +20,7 @@
     position: absolute;
     bottom: 0;
 }
+.prestige {
+    float: left;
+    border: 3px;
+}
