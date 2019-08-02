@@ -16,7 +16,7 @@ function addQC() {
 function pres() {
     credits=0
     CPS=0
-    CPS += qc*(Math.floor(credits/2))
+    CPS += (qc*(Math.floor(credits/2)))
     BinarySystem.owned=0
     Calculator.owned=0
     CM.owned=0
