@@ -8,15 +8,19 @@ function addCredit() {
     document.getElementById("Credits").innerHTML = credits + " Credits";
 }
 function addQC() {
+    var i = qcReq*2.5
     if(credits>=qcReq) {
         qc++;
         document.getElementById("qcAmountDisplay").innerHTML = qc;
+        qcReq = i
     }
 }
 function pres() {
-    credits=0
+    for(var i = credits; i>0;) {
+        credits-3
+    }
     CPS=0
-    CPS += (qc*(Math.floor(credits/2)))
+    CPS += Math.ceil(qc*(Math.floor(credits/2)))
     BinarySystem.owned=0
     Calculator.owned=0
     CM.owned=0
