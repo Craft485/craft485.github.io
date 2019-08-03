@@ -16,11 +16,12 @@ function addQC() {
     }
 }
 function pres() {
+    var i = credits
     credits=0
     BinarySystem.owned=0
     Calculator.owned=0
     CM.owned=0
-    CPS = Math.ceil(qc*(Math.floor(credits/2)))
+    CPS = Math.ceil(qc*(Math.floor(i/2)))
 }
 function tryPres() {
     if(qc>0) {
