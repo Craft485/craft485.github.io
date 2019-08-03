@@ -21,7 +21,7 @@ function pres() {
     BinarySystem.owned=0
     Calculator.owned=0
     CM.owned=0
-    CPS = Math.ceil(qc*(Math.floor(i/2)))
+    CPS = Math.ceil(qc*(Math.floor(i/15)))
 }
 function tryPres() {
     if(qc>0) {
