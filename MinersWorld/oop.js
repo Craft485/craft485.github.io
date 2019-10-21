@@ -31,12 +31,13 @@ class enemy{constructor(name, health, rate, lootTable){
     this.rate = rate
     this.lootTable = lootTable
     this.spawnRate = Math.floor(Math.random() * this.rate)
-    this.dead = false
+    this.isDead = false
     this.onScreen = 0
     this.drawEnemy = function() {
         if(this.onScreen >= 5) {
             return
         } else {
+            
             this.onScreen++
         }
     }

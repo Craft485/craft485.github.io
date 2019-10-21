@@ -15,13 +15,16 @@ function addQC() {
         qcReq = i
     }
 }
-function pres() {
-    var i = credits
-    credits=0
+function resetBuildings() {
     BinarySystem.owned=0
     Calculator.owned=0
     CM.owned=0
-    CPS = Math.ceil(qc*(Math.floor(i/15)))
+}
+function pres() {
+    var i = credits
+    credits=0
+    resetBuildings()
+    CPS = Math.ceil(qc*(Math.floor(i/10000000)))
 }
 function tryPres() {
     if(qc>0) {
