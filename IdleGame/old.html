@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ClickerGame</title>
+        <style>
+        .buildings {
+            float: right;
+        }
+
+        .upgrades {
+            float: right;
+        }
+        
+        .achievments {
+            float: none;
+        }
+
+        .b1, .b2, .b3 {
+            padding: 5px;
+        }
+
+        .e {
+            padding: 4px;
+        }
+        </style>
+    </head>
+    <body>
+        <p id="currency">0 Credits</p>
+        <div class="buildings">
+            <h3 class="e">BUILDINGS</h3>
+            <div class="b1">
+                <button onclick="B1.buy()">
+                    <span class="ProductName">B1</span>
+                    <span id="B1CostDisplay">Cost: 5</span>
+                    <span id="B1Owned">Owned: 0</span>
+                </button>
+            </div>
+            <div class="b2">
+                <button onclick="B2.buy()">
+                    <span class="ProductName1">B2</span>
+                    <span id="B2CostDisplay">Cost: 10</span>
+                    <span id="B2Owned">Owned: 0</span>
+                </button>
+            </div>
+            <div class="b3">
+                <button onclick="B3.buy()">
+                    <span class="ProductName2">B3</span>
+                    <span id="B3CostDisplay">Cost: 25</span>
+                    <span id="B3Owned">Owned: 0</span>
+                </button>
+            </div>
+        </div>
+        <div class="upgrades" id="upgrades">
+            <h3 class="e">UPGRADES</h3>
+            <div class="u1" id="u1">
+                <button onclick="U1.buy()" onclick="remove()">
+                    <span id="U1Name">U1</span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div class="achievments" id="Chevs"></div>
+        <input class="button" type="button" value="click" onclick="addCurrency()"/>
+        <script>
+            var Building = function(name, cost, owned=0, factor=1) {
+                this.name = name;
+                this.cost = cost;
+                this.owned = owned;
+                this.factor = factor;
+                console.log(this.name);
+                this.buy = function(count=1) {
+                    
+                    if (currency >= this.cost) {
+                        currency -= this.cost;
+                        this.owned++;
+                        CPS += this.factor;
+                        this.cost += (this.cost + this.factor);
+                        document.getElementById("currency").innerHTML = currency + " " + "Credits";
+                        console.log("bought building: " + this.name);
+                    }
+                }
+            }
+            var Upgrade = function(name, cost, PreReqB, PreReqCount, effect) {
+                this.name = name;
+                this.cost = cost;
+                this.owned = false;
+                this.PreReqB = PreReqB;
+                this.PreReqCount = PreReqCount;
+                this.effect = this.effect;
+                this.buy = function() {
+                    if(this.PreReqB=true && this.PreReqCount && this.owned != true && currency >= this.cost) {
+                        currency -= this.cost;
+                        this.owned = true;
+                        document.getElementById("currency").innerHTML = currency + " " + "Credits";
+                        this.remove();
+                        console.log("removed/bought upgrade: " + this.name);
+                    }
+                }
+                this.remove = function() {
+                    var parent = document.getElementById("upgrades");
+                    parent.removeChild(this.name);
+                    
+                }
+                this.add = function() {
+                    var name = this.name;
+                    var dElement = document.createElement("div");
+                    var textNode = document.createTextNode(name);
+                    document.getElementById("upgrades").appendChild(dElement);
+                }
+            }
+            /*class Upgrade { //note: no commas needed
+                constructor(name, cost, HiddenId, effect) {
+                    this.cost = cost;
+                    this.name = name;
+                    this.owned = false;
+                    this.HiddenId = this.HiddenId;
+                    this.effect = 
+                    this.buy = function() {
+                        this.owned = true;
+                    }
+                }
+                price() {
+                    return this.cost;
+                }
+            }
+            foo = new Upgrade("name", 42);
+            var ChevMap = {};
+            ChevMap['B1'] = 5; */
+            var currency = 1000;
+            var CPS = 1000; //dev numbers
+            function addCurrency() {
+                currency++;
+                document.getElementById("currency").innerHTML = currency + " " + "Credits";
+            }
+            function loop() {
+                currency += CPS;
+                BU();
+                // ChevCheck();
+                document.getElementById("currency").innerHTML = currency + " " + "Credits";
+                window.setTimeout("loop()", 1000);
+            }
+            function BU() {
+                if(B1.owned > 0) {
+                    document.getElementById("B1CostDisplay").innerHTML = "Cost: " + B1.cost;
+                    document.getElementById("B1Owned").innerHTML = "Owned: " + B1.owned;
+                }
+                if(B2.owned > 0) {
+                    document.getElementById("B2CostDisplay").innerHTML = "Cost: " + B2.cost;
+                    document.getElementById("B2Owned").innerHTML = "Owned: " + B2.owned;
+                }
+                if(B3.owned > 0) {
+                    document.getElementById("B3CostDisplay").innerHTML = "Cost: " + B3.cost;
+                    document.getElementById("B3Owned").innerHTML = "Owned: " + B3.owned;
+                }
+            }
+            /* building block*/
+            var B1 = new Building("B1", 5, 0, 1);
+            var B2 = new Building("B2", 10, 0, 2);
+            var B3 = new Building("B3", 25, 0, 50);
+            /*  upgrade block*/
+            var U1 = new Upgrade("U1", 10, B1, 5);
+            /*chev block*/
+            /*var chev = [
+
+            ]
+            function ChevCheck() {
+                var element = document.createElement("div");
+                var x1 = false;
+                if(B1.owned >= 1 && x1 != true) {
+                    alert("test");
+                    document.getElementById("Chevs").appendChild(element);
+                    x1 = true;
+                }
+            } */
+            loop();
+        </script>
+    </body>
+</html>

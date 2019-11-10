@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hangman</title>
+        <style>
+        .gameBoard {
+            clear: both;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        </style>
+    </head>
+    <body>
+        <input type="button" value="New Game" onclick="newGame()"/>
+        <div id="gameBoard"></div>
+        <script>
+        var word
+        var missed = 0
+        var game = {
+           words: [
+               "cat", "dog", "rat"
+           ] 
+        }
+        var board = {
+            start: [
+                "-----|",
+                "     |",
+                "     |",
+                "     |",
+                "     |",
+                "    ---"
+            ],
+            missed0: [
+                " ------|",
+                " 0     |",
+                "       |",
+                "       |",
+                "       |",
+                "      ---"
+            ],
+            missed1: [
+                " ------|",
+                " 0     |",
+                " |     |",
+                "       |",
+                "       |",
+                "      ---"
+            ],
+            missed2: [
+                " ------|",
+                " 0     |",
+                "\|     |",
+                "       |",
+                "       |",
+                "      ---"
+            ],
+            missed3: [
+                " ------|",
+                " 0     |",
+                "\|/    |",
+                "       |",
+                "       |",
+                "      ---"
+            ],
+            missed4: [
+                " ------|",
+                " 0     |",
+                "\|/    |",
+                "/      |",
+                "       |",
+                "      ---"
+            ],
+            missed5: [
+                " ------|",
+                " 0     |",
+                "\|/    |",
+                "/ \    |",
+                "       |",
+                "      ---"
+            ]
+        }
+        function randWord() {
+            return game.words[Math.floor(Math.random()*game.words.length)]
+        }
+        function newGame() {
+            var a = document.getElementById("gameBoard")
+            var newBoard = document.createElement("div").setAttribute("id", "currentBoard")
+            word = randWord()
+            a.appendChild(newBoard)
+        }
+        </script>
+    </body>
+</html>
