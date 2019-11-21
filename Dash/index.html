@@ -3,15 +3,56 @@
     <head>
         <title>Dashmas</title>
         <style>
+        /* #poster {
+            width: 913;
+            height: 600;
+            width
+        } */
         #poster-image {
-            clear: both;
+            clear: none;
+        }
+        #background {
+            background-color: dimgrey;
+        }
+        .text {
+            color: ghostwhite
+        }
+        #song-text {
+            float: right;
         }
         </style>
     </head>
-    <body>
+    <body id="background">
         <div id="main">
             <!--Main Content Header-->
-            <img id="poster-image" src="Dashnet_Christmas_Collab_Transparent.png" alt="Dashnet_Christmas_Collab_Transparent" height="936" width="1249">
+            <div id="poster">
+                    <!--Yes, I made the image in a strange way, but it just works ok?-->
+                    <a href="https://tinyurl.com/songForDash">
+                        <img id="poster-image" src="Dashnet_Christmas_Collab_Transparent.png" 
+                        alt="Dashnet_Christmas_Collab_Transparent" 
+                        height="600" 
+                        width="913">
+                    </a>
+                </div>
+            <div class="text" id="song-text">
+                Jelly has created a Dash Net varient of "12 Days of Christmas"!
+                <p>
+                    On the twelfth day of Dashmas<br/>
+                    Lord Orteil gave to me<br/>
+                    Twelve lurkers lurking<br/>
+                    Eleven different colors<br/>
+                    Ten golden cursors<br/>
+                    Nine bees a buzzing<br/>
+                    Eight Minecraft servers<br/>
+                    Seven cookies clicking<br/>
+                    Six mobile updates<br/>
+                    Five sugar lumps<br/>
+                    Four Kitten Helpers<br/>
+                    Three more channels<br/>
+                    Two dragon eggs<br/>
+                    And a pinned message in lobby<br/>
+                </p>
+            </div>
         </div>
     </body>
 </html>
