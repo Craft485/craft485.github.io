@@ -76,7 +76,7 @@ function loop() { //loop block
     BU();
     UU();
     chevCheck();
-    addQC()
+    // addQC()
     document.getElementById("Credits").innerHTML = credits + " Credits";
     document.getElementById("CPS").innerHTML = "Credits per Second: " + CPS;
     window.setTimeout("loop()", 1000);
