@@ -1,57 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
     <head>
         <title>Dashmas</title>
         <style>
-        /* #poster {
-            width: 913;
-            height: 600;
-            width
-        } */
-        #poster-image {
-            clear: left;
-            padding: 0;
-        }
-        #background {
-            background-color: dimgrey;
+        .banner-wrapper {
             width: 100%;
-            height: 100%;
         }
-        .text {
-            color: ghostwhite
+        .background {
+            background-image: linear-gradient(lightblue, purple);
         }
-        #song-text {
-            float: right;
+        .image {
+            display: block;
+            margin-left: 25%;
+            width: 70%;
         }
         </style>
-    </head>
-    <body id="background">
-        <div id="main">
-            <!--Main Content Header-->
-            <div>
-                <image id="poster-image" src="Dashnet_Christmas_Collab_Transparent.png" alt="Dashnet_Christmas_Collab_Transparent" height="600" width="913">
-                    <a href="https://tinyurl.com/songForDash"></a>
-                </image>
-            </div>
-            <div class="text" id="song-text">
-                Jelly has created a Dash Net varient of "12 Days of Christmas"!
-                <p>
-                    <p style="color:firebrick">On the twelfth day of Dashmas</p>
-                    <p style="color: forestgreen;">Lord Orteil gave to me</p>
-                    <p style="color:firebrick">Twelve lurkers lurking</p>
-                    <p style="color: forestgreen;">Eleven different colors</p>
-                    <p style="color:firebrick">Ten golden cursors</p>
-                    <p style="color: forestgreen;">Nine bees a buzzing</p>
-                    <p style="color:firebrick">Eight Minecraft servers</p>
-                    <p style="color: forestgreen;">Seven cookies clicking</p>
-                    <p style="color:firebrick">Six mobile updates</p>
-                    <p style="color: forestgreen;">Five sugar lumps</p>
-                    <p style="color:firebrick">Four Kitten Helpers</p>
-                    <p style="color: forestgreen;">Three more channels</p>
-                    <p style="color:firebrick">Two dragon eggs</p>
-                    <p style="color: forestgreen;">And a pinned message in lobby</p>
-                </p>
-            </div>
+        <div class="banner-wrapper">
+            <button class="nav-button"></button>
         </div>
+    </head>
+    <body class="background">
+        <!--Home Page Content-->
+        <!--<image src="Dashnet_Christmas_Collab_TransparentScaled.png" alt="Dashnet_Christmas_Collab_Transparent.png" class="image" >
+        <a href="https://tinyurl.com/songForDash"></a></image>-->
+        <a href="https://tinyurl.com/songForDash" class="image">
+            <image src="Dashnet_Christmas_Collab_TransparentScaled.png" alt="Dashnet_Christmas_Collab_Transparent.png"></image>
+        </a>
+        <span><a href="https://tinyurl.com/songForDash">Click here</a> or click the poster to fill out the form!</span>
     </body>
+
 </html>
