@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Dashmas Discord</title>
+        <style>
+            .banner-wrapper {
+                width: 100%;
+                border-color:black;
+                border-style:solid;
+                border-width: medium; 
+            }
+            .background {
+                background-image: linear-gradient(to bottom right, lightblue, purple);
+                height: 921px;
+            }
+            /* nav-button is only really to make buttons transparent */
+            .nav-button {
+                background-color: Transparent;
+                background-repeat:no-repeat;
+                border: none;
+                cursor:pointer;
+                overflow: hidden;
+                outline:none;
+                height: 68px;
+                padding-right: 100px;
+            }
+        </style>
+        <!--Banner Content-->
+        <div class="banner-wrapper">
+            <button class="nav-button"><a href="index.html"><h1><b>Home</b></h1></a></button>
+            <button class="nav-button"><a href="nav-pages/12-Days-of-Dashmas.html"><h1><b>12 Days of Dashmas</b></h1></a></button>
+            <button class="nav-button"><a href="nav-pages/cards.html"><h1><b>Cards</b></h1></a></button>
+            <button class="nav-button"><a href="nav-pages/video.html"><h1><b>Music Video!</b></h1></a></button>
+            <button class="nav-button"><a href="nav-pages/credits.html"><h1><b>Credits</b></h1></a></button>
+            <button class="nav-button"><a href="nav-pages/discord.html"><h1><b>Dashmas Discord</b></h1></a></button> 
+            <!--iFrame does not seem to load-->
+        </div>
+        <!--That's a lot a buttons-->
+    </head>
+    <body class="background">
+        <iframe src="https://discordapp.com/widget?id=647985725815652394&theme=dark" 
+        width="350" height="500" allowtransparency="true" frameborder="0">
+            <p>Your browser does not support iframes!</p>
+        </iframe>
+    </body>
+</html>
