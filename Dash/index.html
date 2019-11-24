@@ -5,6 +5,9 @@
         <style>
         .banner-wrapper {
             width: 100%;
+            border-color:black;
+            border-style:solid;
+            border-width: medium; 
         }
         .background {
             background-image: linear-gradient(lightblue, purple);
@@ -14,15 +17,29 @@
             margin-left: 25%;
             width: 70%;
         }
+        /* nav-button is only really to make buttons transparent */
+        .nav-button {
+            background-color: Transparent;
+            background-repeat:no-repeat;
+            border: none;
+            cursor:pointer;
+            overflow: hidden;
+            outline:none;
+        }
         </style>
+        <!--Banner Content-->
         <div class="banner-wrapper">
-            <button class="nav-button"></button>
+            <button class="nav-button"><a href="index.html"><h1><b>Home</b></h1></a></button>
+            <button class="nav-button"><a href=""><h1><b>12 Days of Dashmas</b></h1></a></button>
+            <button class="nav-button"><a href=""><h1><b>name</b></h1></a></button>
+            <button class="nav-button"><a href=""><h1><b>name</b></h1></a></button>
+            <button class="nav-button"><a href=""><h1><b>Music Video!</b></h1></a></button>
+            <button class="nav-button"><a href=""><h1><b>Credits</b></h1></a></button>
         </div>
+        <!--That's a lot a buttons-->
     </head>
     <body class="background">
         <!--Home Page Content-->
-        <!--<image src="Dashnet_Christmas_Collab_TransparentScaled.png" alt="Dashnet_Christmas_Collab_Transparent.png" class="image" >
-        <a href="https://tinyurl.com/songForDash"></a></image>-->
         <a href="https://tinyurl.com/songForDash" class="image">
             <image src="Dashnet_Christmas_Collab_TransparentScaled.png" alt="Dashnet_Christmas_Collab_Transparent.png"></image>
         </a>
