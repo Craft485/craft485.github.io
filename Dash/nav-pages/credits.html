@@ -10,16 +10,24 @@
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 20%;
+            text-align: center;
         }
 
         td, th {
             border: medium solid black;
-            text-align: left;
+            text-align: center;
             padding: 8px;
         }
 
-        tr:nth-child(even) {
+        /*tr:nth-child(even) {
             background-color: #dddddd;
+        }*/
+
+        .page-title-text {
+            margin: auto;
+            font-size: large;
+            padding: 5px;
+
         }
         </style>
         <!--Banner Content-->
@@ -34,40 +42,33 @@
         <!--That's a lot a buttons-->
     </head>
     <body class="background">
-        <div class="center">
-            <div style="width: 15%;">
-                <h1 style="width: 25%;">
-                    Credits <!--Will not center, look into later-->
-                </h1>
-            </div>
-        <!--Table-->
-        <table class="center"> 
+        <!--<div class="center"> center class comes from style.css as a global class
+            /*
+            Title for table
+            <p class="page-title-text">Credits</p>
+            Div does not seem to center, even with defined width =/= 100%
+            */
+        </div>-->
+        <table class="center" style="margin-top: 3%;">
             <tr>
-                <th>Alias</th>
-                <th>Media Info</th>
+                <th colspan="2" style="text-align: center;">Credits</th>
             </tr>
             <tr>
-                <td >test</td>
-                <td >test</td>
+                <th style="width: 50%;">Name</th> <!-- style="width: 50%;" sets the 2 columns to the same width-->
+                <th style="width: 50%;">Info</th>
             </tr>
             <tr>
-                <td >tset</td>
-                <td >test</td>
+                <td>Foo</td>
+                <td>Bar</td>
             </tr>
             <tr>
-                <td >test</td>
-                <td >tset</td>
-            </tr>
-            <tr> <!--Alberto why-->
-                <td >tset</td>
-                <td >ttset</td>
+                <td>John</td>
+                <td>Doe</td>
             </tr>
             <tr>
-                <td >ttset</td>
-                <td >tset</td>
+                <td>Dash</td>
+                <td>Net</td>
             </tr>
         </table>
-        </div>
-        
     </body>
 </html>
