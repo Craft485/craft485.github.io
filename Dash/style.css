@@ -1,4 +1,4 @@
-/*THIS FILE STORES SOME GLOBAL CSS CLASSES 
+/*THIS FILE STORES GLOBAL CSS CLASSES 
 THAT ARE USED THROGHOUT THE NAV-PAGES TABS, 
 ANY EDIT HERE WILL AFFECT ALL .HTML FILES 
 INCLUDING THE MAIN INDEX.HTML*/
@@ -7,19 +7,28 @@ INCLUDING THE MAIN INDEX.HTML*/
     border-color:black;
     border-style:solid;
     border-width: medium; 
+    text-align: center;
 }
 .background {
-    background-image: linear-gradient(to bottom right, lightblue, purple);
-    height: 921px; /*is the to needed? the syntax highlighting doesn't pick it up*/
+    background-image: url(https://cdn.discordapp.com/attachments/648270179343663116/648310280190689280/885073.gif);
+    height: 100%;
 }
 /* nav-button is only really to make buttons transparent */
 .nav-button {
     background-color: Transparent;
     background-repeat:no-repeat;
-    border: none;
+    border-style: thin;
     cursor:pointer;
     overflow: hidden;
     outline:none;
     height: 68px;
     padding-right: 8%;
+    text-align: center;
+}
+.nav-button:hover {
+    transform: scale(1.1);
+}
+.center {
+    margin: auto;
+    padding: 10px;
 }
