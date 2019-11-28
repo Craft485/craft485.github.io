@@ -32,3 +32,14 @@ INCLUDING THE MAIN INDEX.HTML*/
     margin: auto;
     padding: 10px;
 }
+.SITE-FOOTER {
+    position: absolute;
+    /*left: 0;*/
+    /*bottom: 0;*/
+    background-color: rgb(61, 172, 236);
+    color: white;
+    text-align: center;
+    margin-bottom: 0px; /*this attribute may not actually do anythin since p tags have bottom margin and that would overide the class...*/
+    /*margin-top: 25%;*/
+    width: 100%;
+}
