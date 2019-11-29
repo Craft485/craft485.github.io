@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false">
+    <head>
+        <title>Idle Dash</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="background">
+        <script defer src="main.js"></script>
+        <script defer src="buildings.js"></script>
+        <div id="currencyDisplay">
+            <p>You have <span id="dashPointsDisplay">0</span> Dash Points</p>
+        </div>
+        <button class="btn" id="earnDashPointsBtn" onclick="addDashPoint()" style="text-align: center; float: left;">Earn Dash Points</button>
+        <div class="buildingsDisplay">
+            <!--Building Display Content-->
+            <div class="building">
+                <span class="buildingName">Name: <strong>Send a Message</strong></span><br/>
+                <button class="buildingCost">Cost: <span id="SAMCost">15</span> Dash Points</button><br/>
+                <span>Dash Points per Second: <span class="buildingDPPS" id="SAMDPPS"></span></span><br/>
+            </div>
+
+        </div>
+    </body>
+</html>

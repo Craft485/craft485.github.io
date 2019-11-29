@@ -1,0 +1,23 @@
+/*body {
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background: -webkit-linear-gradient( to bottom right, white, grey, black);
+    background: -moz-linear-gradient( to bottom right, white, grey, black);
+    background: -ms-linear-gradient( to bottom right, white, grey, black);
+    background: -o-linear-gradient( to bottom right, white, grey, black);
+    background: linear-gradient( to bottom right, white, grey, black);
+}*/
+.building {
+    float: right;
+    border-style: solid;
+    border-color: black;
+}
+#currencyDisplay {
+    float: left;
+    width: 50%;
+    margin-left: 0%;
+}
