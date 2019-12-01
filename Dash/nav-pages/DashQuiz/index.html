@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false" lang="en">
+    <head>
+        <title>Dash Quiz</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!--^^jQuery^^-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+        <!--^^Bootstrap^^-->
+        <style>
+        .background {
+            background-color: grey
+        }
+        .startBtn {
+            margin: auto;
+        }
+        </style>
+    </head>
+    <body class="background">
+        <script defer src="main.js"></script>
+        <!--<script defer src="OOP.js"></script>-->
+        <button id="startBtn" class="startBtn" onclick="newGame()">Start New Game</button>
+        <div class="game" id="game">
+            <div id="questionDisplay">
+                <!--Show question-->
+            </div>
+            <div class="answers">
+                <!--List possible answers A-D-->
+                <div>
+                    <button class="btn" onclick="this.checkAnswer()">
+                        <span id="answerA"></span>
+                    </button>
+                </div>
+                <div>
+                    <button class="btn" onclick="this.checkAnswer()">
+                        <span id="answerB"></span>
+                    </button>
+                </div>
+                <div>
+                    <button class="btn" onclick="this.checkAnswer()">
+                        <span id="answerC"></span>
+                    </button>
+                </div>
+                <div>
+                    <button class="btn" onclick="this.checkAnswer()">
+                        <span id="answerD"></span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

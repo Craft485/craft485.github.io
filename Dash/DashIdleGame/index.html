@@ -10,14 +10,17 @@
         <script defer src="buildings.js"></script>
         <div id="currencyDisplay">
             <p>You have <span id="dashPointsDisplay">0</span> Dash Points</p>
+            <p><span id="DPPSDisplay">0</span> Dash Points per Second</p>
+            <button class="btn" id="earnDashPointsBtn" onclick="addDashPoint()">Earn Dash Points</button>
         </div>
-        <button class="btn" id="earnDashPointsBtn" onclick="addDashPoint()" style="text-align: center; float: left;">Earn Dash Points</button>
+        
         <div class="buildingsDisplay">
             <!--Building Display Content-->
             <div class="building">
                 <span class="buildingName">Name: <strong>Send a Message</strong></span><br/>
-                <button class="buildingCost">Cost: <span id="SAMCost">15</span> Dash Points</button><br/>
-                <span>Dash Points per Second: <span class="buildingDPPS" id="SAMDPPS"></span></span><br/>
+                <button class="buildingCost" onclick="SendAMessage.buy()">Cost: <span id="SAMCost">15</span> Dash Points</button><br/>
+                <span>Owned: <span id="SAMAmountOwned">0</span></span><br/>
+                <span>Dash Points per Second: <br/><span class="buildingDPPS" id="SAMDPPS"></span></span><br/>
             </div>
 
         </div>
