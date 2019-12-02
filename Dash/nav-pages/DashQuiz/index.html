@@ -14,6 +14,12 @@
         .startBtn {
             margin: auto;
         }
+        .option {
+            width: 50%;
+        }
+        .answers {
+            width: 50%;
+        }
         </style>
     </head>
     <body class="background">
@@ -24,25 +30,26 @@
             <div id="questionDisplay">
                 <!--Show question-->
             </div>
+
             <div class="answers">
                 <!--List possible answers A-D-->
-                <div>
-                    <button class="btn" onclick="this.checkAnswer()">
+                <div class="option">
+                    <button class="btn" onclick="isCheck(document.getElementById('answerA').innerHTML)">
                         <span id="answerA"></span>
                     </button>
                 </div>
-                <div>
-                    <button class="btn" onclick="this.checkAnswer()">
+                <div class="option">
+                    <button class="btn" onclick="isCheck(document.getElementById('answerB').innerHTML)">
                         <span id="answerB"></span>
                     </button>
                 </div>
-                <div>
-                    <button class="btn" onclick="this.checkAnswer()">
+                <div class="option">
+                    <button class="btn" onclick="isCheck(document.getElementById('answerC').innerHTML)">
                         <span id="answerC"></span>
                     </button>
                 </div>
-                <div>
-                    <button class="btn" onclick="this.checkAnswer()">
+                <div class="option">
+                    <button class="btn" onclick="isCheck(document.getElementById('answerD').innerHTML)">
                         <span id="answerD"></span>
                     </button>
                 </div>
