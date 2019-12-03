@@ -3,7 +3,7 @@ let score = 0
 let questionIndex = [
     //obj.questionIndex
 ]
-var currentQuestion
+var currentQuestion = " "
 
 //document.onload(loadHighScore())
 
@@ -29,7 +29,16 @@ let question9 = new question(8, "What channel do you need the pillow role to vie
 let question10 = new question(9, "What year was Cookie Clicker released?", "2005", "2013", "2019", "2014", "2013")
 
 let possibleQuestions = [
-    question1, question2, question3, question4, question5, question6, question7, question8, question9, question10
+    question1, 
+    question2, 
+    question3, 
+    question4, 
+    question5, 
+    question6, 
+    question7, 
+    question8, 
+    question9, 
+    question10
 ]
 
 function newGame() {
@@ -52,11 +61,11 @@ function isCheck(e) {
     console.log(possibleQuestions)
     if(chosenAnswer === currentQuestion.rightAnswer) {
         score++
-        delete possibleQuestions[currentQuestion.questionIndex]
+        //delete possibleQuestions[currentQuestion.questionIndex]
         if(possibleQuestions.length=0) {
             gameOver()
         } else {
-            newQuestion()
+            newQuestion(possibleQuestions)
             //newGame()
         }
     } else {
@@ -66,7 +75,7 @@ function isCheck(e) {
             gameOver()
         } else {
             //newGame()
-            newQuestion()
+            newQuestion(possibleQuestions)
         }
     }
 }
@@ -74,6 +83,9 @@ function isCheck(e) {
 function newQuestion() {
     let i = Math.floor(Math.random()*possibleQuestions.length)
     currentQuestion = possibleQuestions[i] //set new question
+    if (typeof(currentQuestion)!=Object || possibleQuestions.length == 0) { //this was a fun custom catch block actually, only took 10 seconds but fun
+        console.error("ERR: " + currentQuestion + " is not an obj!")
+    }
     console.log(currentQuestion)
     console.log(possibleQuestions)
     document.getElementById("questionDisplay").innerHTML = currentQuestion
