@@ -83,12 +83,7 @@ function isCheck(e) {
 function newQuestion() {
     let i = Math.floor(Math.random()*possibleQuestions.length)
     currentQuestion = possibleQuestions[i] //set new question
-    if (typeof(currentQuestion)!=Object || possibleQuestions.length == 0) { //this was a fun custom catch block actually, only took 10 seconds but fun
-        console.error("ERR: " + currentQuestion + " is not an obj!")
-    }
-    console.log(currentQuestion)
-    console.log(possibleQuestions)
-    document.getElementById("questionDisplay").innerHTML = currentQuestion
+    document.getElementById("questionDisplay").innerHTML = currentQuestion.question
     document.getElementById("answerA").innerHTML = currentQuestion.answers[0] //set new answers
     document.getElementById("answerB").innerHTML = currentQuestion.answers[1]
     document.getElementById("answerC").innerHTML = currentQuestion.answers[2]
