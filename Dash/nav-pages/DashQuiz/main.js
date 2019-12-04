@@ -62,7 +62,7 @@ function isCheck(e) {
     if(chosenAnswer === currentQuestion.rightAnswer) {
         score++
         //delete possibleQuestions[currentQuestion.questionIndex]
-        if(possibleQuestions.length=0) {
+        if(possibleQuestions.length==0) {
             gameOver()
         } else {
             newQuestion(possibleQuestions)
@@ -71,7 +71,7 @@ function isCheck(e) {
     } else {
         
         alert("That is incorrect! The right answer was " + currentQuestion.rightAnswer)
-        if(possibleQuestions.length=0) {
+        if(possibleQuestions.length==0) {
             gameOver()
         } else {
             //newGame()
