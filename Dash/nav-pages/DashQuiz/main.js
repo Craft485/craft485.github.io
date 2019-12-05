@@ -5,6 +5,13 @@ let questionIndex = [
 ]
 var currentQuestion = " "
 
+/*document.onload(()=>{
+
+    //loadHighScore()
+
+    console.info("There will be several '[Violation]' messages in the console! These can be ingnored for most intents and purposes.")
+})*/
+
 //document.onload(loadHighScore())
 
 class question{constructor(questionNum, question, answerA, answerB, answerC, answerD, correctAnswer) {
@@ -62,35 +69,71 @@ function isCheck(e) {
     if(chosenAnswer === currentQuestion.rightAnswer) {
         score++
         //delete possibleQuestions[currentQuestion.questionIndex]
+        questionIndex.push(currentQuestion.rightAnswer)
+        //possibleQuestions.pop()
         if(possibleQuestions.length==0) {
             gameOver()
         } else {
             newQuestion(possibleQuestions)
-            //newGame()
         }
     } else {
-        
+        //score--
         alert("That is incorrect! The right answer was " + currentQuestion.rightAnswer)
         if(possibleQuestions.length==0) {
             gameOver()
         } else {
-            //newGame()
             newQuestion(possibleQuestions)
         }
     }
 }
+
 //World Domination Imposed
+
 function newQuestion() {
+    let e = true
+    //let i = possibleQuestions[possibleQuestions.length]
     let i = Math.floor(Math.random()*possibleQuestions.length)
     currentQuestion = possibleQuestions[i] //set new question
-    document.getElementById("questionDisplay").innerHTML = currentQuestion.question
-    document.getElementById("answerA").innerHTML = currentQuestion.answers[0] //set new answers
-    document.getElementById("answerB").innerHTML = currentQuestion.answers[1]
-    document.getElementById("answerC").innerHTML = currentQuestion.answers[2]
-    document.getElementById("answerD").innerHTML = currentQuestion.answers[3]
-    //this looks horid I know
+    var promise = new Promise((resolve, reject)=>{
+        var err = false
+        
+        for(i=0; i<questionIndex.length; i++) {
+            if(currentQuestion.questionIndex === questionIndex[i]) {
+                e = false //if the question is used, we dont want that one
+            }
+            if(i===questionIndex.length) {
+                resolve('Success')
+            }
+        }
+        
+        if(err===true) {
+            reject('Failed to allocate Promise{} object')
+        }
+
+    })
+    promise.then((message)=>{
+        if(e===true) {
+            document.getElementById("questionDisplay").innerHTML = currentQuestion.question
+            //set new answers
+            document.getElementById("answerA").innerHTML = currentQuestion.answers[0]
+            document.getElementById("answerB").innerHTML = currentQuestion.answers[1]
+            document.getElementById("answerC").innerHTML = currentQuestion.answers[2]
+            document.getElementById("answerD").innerHTML = currentQuestion.answers[3]
+            //this looks horid I know
+        } else if(e===false) {
+            //this will only fire if somehow gameover() isn't called prior to this function
+            gameOver()
+        }
+    })
+    promise.catch((message)=>{
+        console.error("ERR: " + message)
+    })
 }
 function gameOver() {
+    document.getElementById("questionDisplay").innerHTML = "You have finished this quiz! \n Your score was " 
+    + score + "/" + possibleQuestions.length
     // set localStorage.score
-    alert("You have finished this quiz! Your final score was " + score)
+    //alert("You have finished this quiz! Your final score was " + score)
 }
+
+console.info("There will be several '[Violation]' messages in the console! These can be ingnored for most intents and purposes.")
