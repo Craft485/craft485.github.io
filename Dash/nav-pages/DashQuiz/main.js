@@ -65,16 +65,16 @@ function newGame() {
 
 function isCheck(e) {
     let chosenAnswer = e
-    console.log(possibleQuestions)
+    //console.log(possibleQuestions)
     if(chosenAnswer === currentQuestion.rightAnswer) {
         score++
         //delete possibleQuestions[currentQuestion.questionIndex]
-        questionIndex.push(currentQuestion.rightAnswer)
+        questionIndex.push(currentQuestion.questionIndex)
         //possibleQuestions.pop()
-        if(possibleQuestions.length==0) {
+        if(questionIndex.length===10) {
             gameOver()
         } else {
-            newQuestion(possibleQuestions)
+            newQuestion()
         }
     } else {
         //score--
@@ -82,53 +82,41 @@ function isCheck(e) {
         if(possibleQuestions.length==0) {
             gameOver()
         } else {
-            newQuestion(possibleQuestions)
+            newQuestion()
         }
     }
 }
 
 //World Domination Imposed
 
-function newQuestion() {
-    let e = true
-    //let i = possibleQuestions[possibleQuestions.length]
-    let i = Math.floor(Math.random()*possibleQuestions.length)
-    currentQuestion = possibleQuestions[i] //set new question
-    var promise = new Promise((resolve, reject)=>{
-        var err = false
-        
-        for(i=0; i<questionIndex.length; i++) {
-            if(currentQuestion.questionIndex === questionIndex[i]) {
-                e = false //if the question is used, we dont want that one
-            }
-            if(i===questionIndex.length) {
-                resolve('Success')
-            }
-        }
-        
-        if(err===true) {
-            reject('Failed to allocate Promise{} object')
-        }
-
-    })
-    promise.then((message)=>{
-        if(e===true) {
-            document.getElementById("questionDisplay").innerHTML = currentQuestion.question
-            //set new answers
-            document.getElementById("answerA").innerHTML = currentQuestion.answers[0]
-            document.getElementById("answerB").innerHTML = currentQuestion.answers[1]
-            document.getElementById("answerC").innerHTML = currentQuestion.answers[2]
-            document.getElementById("answerD").innerHTML = currentQuestion.answers[3]
-            //this looks horid I know
-        } else if(e===false) {
-            //this will only fire if somehow gameover() isn't called prior to this function
-            gameOver()
-        }
-    })
-    promise.catch((message)=>{
-        console.error("ERR: " + message)
-    })
+function generateNewQuestionContent() {
+    document.getElementById("questionDisplay").innerHTML = currentQuestion.question
+    //set new answers
+    document.getElementById("answerA").innerHTML = currentQuestion.answers[0]
+    document.getElementById("answerB").innerHTML = currentQuestion.answers[1]
+    document.getElementById("answerC").innerHTML = currentQuestion.answers[2]
+    document.getElementById("answerD").innerHTML = currentQuestion.answers[3]
+    //this looks horid I know
 }
+
+
+function newQuestion() {
+    var i = Math.floor(Math.random()*possibleQuestions.length)
+    currentQuestion = possibleQuestions[i]
+    //myLoop:
+    for(i=0;i<possibleQuestions.length;i++) {
+        if (currentQuestion.questionIndex === questionIndex[i]) {
+            newQuestion() //question has already been used
+            clearTimeout(i)
+            //break myLoop
+        }else if(currentQuestion.questionIndex !== questionIndex[i]) {
+            generateNewQuestionContent() //we have a new question
+        } else if(i==possibleQuestions.length) {
+            gameOver() //the other function didn't do its job so we have to pick up the slack here
+        }
+    }
+}
+
 function gameOver() {
     document.getElementById("questionDisplay").innerHTML = "You have finished this quiz! \n Your score was " 
     + score + "/" + possibleQuestions.length
