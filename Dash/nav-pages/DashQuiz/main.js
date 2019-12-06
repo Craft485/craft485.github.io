@@ -63,11 +63,22 @@ function newGame() {
     currentQuestion = question
 }
 
+function loadHighScore() {
+    //get and display highscore, if there is one
+    let highScore = window.localStorage.getItem('score')
+    if(highScore == undefined) {
+        return
+    } else {
+        document.getElementById("highScoreDisplay").innerHTML = window.localStorage.getItem('score')
+    }
+}
+
 function isCheck(e) {
     let chosenAnswer = e
     //console.log(possibleQuestions)
     if(chosenAnswer === currentQuestion.rightAnswer) {
         score++
+        document.getElementById("scoreDisplay").innerHTML = score
         //delete possibleQuestions[currentQuestion.questionIndex]
         questionIndex.push(currentQuestion.questionIndex)
         //possibleQuestions.pop()
@@ -120,8 +131,17 @@ function newQuestion() {
 function gameOver() {
     document.getElementById("questionDisplay").innerHTML = "You have finished this quiz! \n Your score was " 
     + score + "/" + possibleQuestions.length
-    // set localStorage.score
+    let highScore = window.localStorage.getItem('score') //set the high score
+    if(highScore<score || highScore == undefined) {
+        window.localStorage.setItem('score', score)
+        highScore = window.localStorage.getItem('score')
+        document.getElementById("highScoreDisplay").innerHTML = highScore
+        document.getElementById("highScoreDisplay").style = "visibility: visible"
+    }
+    
+
     //alert("You have finished this quiz! Your final score was " + score)
 }
 
 console.info("There will be several '[Violation]' messages in the console! These can be ingnored for most intents and purposes.")
+loadHighScore()
