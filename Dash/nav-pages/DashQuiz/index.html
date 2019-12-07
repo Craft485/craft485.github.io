@@ -22,12 +22,14 @@
         }
         </style>
     </head>
-    <body class="background">
+    <body class="background" onkeydown="return false">
         <script defer src="main.js"></script>
         <!--<script defer src="OOP.js"></script>-->
         <button id="startBtn" class="startBtn" onclick="newGame()">Start New Game</button>
         <div class="game" id="game">
-            <div style="width: auto; float: right; visibility: hidden;" >You best score: <br/><span id="highScoreDisplay"></span></div>
+            <div style="width: auto; float: right; visibility: hidden;"  id="highScoreDisplay">
+                Your best score: <span id="highScore"></span>
+            </div>
             <p>Score: <span id="scoreDisplay">0</span></p>
             <div id="questionDisplay">
                 <!--Show question-->
@@ -57,6 +59,13 @@
                 </div>
             </div>
             <!--End of Answer Box Content-->
+            <script>
+            $(document).keydown(function(e){
+                if(e.which === 123){
+                    return false;
+                }
+            });
+            </script>
         </div>
     </body>
 </html>
