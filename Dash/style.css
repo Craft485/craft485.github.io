@@ -9,11 +9,14 @@ INCLUDING THE MAIN INDEX.HTML*/
     border-width: medium; 
     text-align: center;
 }
-.background {
+html {
     background-image: url(https://cdn.discordapp.com/attachments/648270179343663116/648310280190689280/885073.gif);
     height: 100%;
 }
 /* nav-button is only really to make buttons transparent */
+body {
+    background-color: transparent;
+}
 .nav-button {
     background-color: Transparent;
     background-repeat:no-repeat;
