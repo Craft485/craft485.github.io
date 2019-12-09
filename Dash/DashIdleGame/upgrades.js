@@ -1,18 +1,20 @@
-class upgrade{constructor(name, cost, affectedBuilding, effect, effectText, shortIdName){
+class upgrade{constructor(name, cost, affectedBuilding, effect, effectText, shortIdName, varName){
     this.name = name
     this.cost = cost
-    this.affectedBuilding = affectedBuilding //this will be a building obj
+    this.affectedBuilding = affectedBuilding
     this.effect = effect
     this.effectText = effectText
     this.short = shortIdName
+    this.varName - varName
     this.owned = false
-
+    
     this.buy = ()=>{
         if (this.owned===false) {
             dashPoints-=this.cost
             this.affectedBuilding.dashPointsEarnedPerSecond+=Math.ceil((effect/100)*this.affectedBuilding.dashPointsEarnedPerSecond)
             this.owned = true
-            this.removeUpgradeListing()
+            console.log("Buying " + this.name + "...")
+            //this.removeUpgradeListing()
         } else {
             return false
         }
@@ -26,7 +28,7 @@ class upgrade{constructor(name, cost, affectedBuilding, effect, effectText, shor
         }
     }
 
-    this.showUpgrade = (objName)=>{
+    this.showUpgrade = ()=>{
         if(this.owned===false) {
             let upgradeDisplay = document.getElementById("upgradeDisplay")
             //create the button which will be a wrapper for the rest of the upgrade
@@ -50,11 +52,9 @@ class upgrade{constructor(name, cost, affectedBuilding, effect, effectText, shor
             //append the final product to the display div
             upgradeDisplay.appendChild(newUpgrade)
             //give the  upgrade an onclick event
-            let upgrade = document.getElementById(this.short+"Button")
-            console.info(upgrade)
-            upgrade.setAttribute("onclick", objName.buy())
+            document.getElementById(this.short+"Button").onclick = ()=>{this.buy()}
         }
     }
 }}
 
-var fasterTyping = new upgrade("Faster Typing", 20, SendAMessage, 3, "Sending messages are <strong>3%</strong> more effective", "FT")
+var fasterTyping = new upgrade("Faster Typing", 20, SendAMessage, 3, "Sending messages are <strong>3%</strong> more effective", "FT", "fasterTyping")
