@@ -14,8 +14,11 @@ html {
 body {
     background: transparent;
 }
-.building {
+.buildingsDisplay {
     float: right;
+}
+.building {
+    /*float: right;*/
     border-style: solid;
     border-color: black;
 }
@@ -31,3 +34,14 @@ body {
     border: solid;
     /*border-radius: 50%;*/
 }
+.upgradeDisplay {
+    float: right;
+    border-style: solid;
+    border-color: black;
+    padding: 2px;
+}
+/*.contentHeader {
+    border-style: solid;
+    border-color: black;
+    border-width: medium;
+}*/
