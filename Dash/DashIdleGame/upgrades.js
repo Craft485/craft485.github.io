@@ -8,6 +8,7 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
     this.varName - varName
     this.reqInt = affectedBuildingInt
     this.owned = false
+    this.earned = false
     
     this.buy = ()=>{
         if (dashPoints>=this.cost) {
@@ -37,6 +38,7 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
 
     this.showUpgrade = ()=>{
         if(this.owned===false) {
+            this.earned=true
             let upgradeDisplay = document.getElementById("upgradeDisplay")
             //create the button which will be a wrapper for the rest of the upgrade
             let newUpgrade = document.createElement("button")
@@ -64,7 +66,7 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
     }
 
     this.earnUpgrade = ()=> { //might be a useless function here but eh may as well
-        if(this.affectedBuilding.amountOwned>=this.reqInt && this.owned===false) {
+        if(this.affectedBuilding.amountOwned>=this.reqInt && this.owned===false && this.earned===false) {
             this.showUpgrade()
         }
     }

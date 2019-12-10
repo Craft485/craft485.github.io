@@ -17,11 +17,9 @@ function addDashPointsPerSecond() {
 function checkForUpgrades() {
     checkForUpgradesForLoop:
     for(i=0; i<upgrades.length; i++) {
+        //currentUpgradeIndex is an obj
         let currentUpgradeIndex = upgrades[i]
-        if(currentUpgradeIndex.owned===false 
-        && currentUpgradeIndex.amountOwned>=currentUpgradeIndex.reqInt) {
-            currentUpgradeIndex.earnUpgrade()
-        }
+        currentUpgradeIndex.earnUpgrade()
     }
 }
 
