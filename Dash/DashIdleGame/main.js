@@ -14,8 +14,20 @@ function addDashPointsPerSecond() {
     document.getElementById("dashPointsDisplay").innerHTML = dashPoints
 }
 
+function checkForUpgrades() {
+    checkForUpgradesForLoop:
+    for(i=0; i<upgrades.length; i++) {
+        let currentUpgradeIndex = upgrades[i]
+        if(currentUpgradeIndex.owned===false 
+        && currentUpgradeIndex.amountOwned>=currentUpgradeIndex.reqInt) {
+            currentUpgradeIndex.earnUpgrade()
+        }
+    }
+}
+
 function tick() {
     addDashPointsPerSecond() //updates both dash points and dp per second
+    checkForUpgrades() //check for any avalible upgrades
     setTimeout(()=>{
         tick()
     }, 1000)

@@ -1,4 +1,4 @@
-class upgrade{constructor(name, cost, affectedBuilding, effect, effectText, shortIdName, varName){
+class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, effect, effectText, shortIdName, varName){
     this.name = name
     this.cost = cost
     this.affectedBuilding = affectedBuilding
@@ -6,17 +6,22 @@ class upgrade{constructor(name, cost, affectedBuilding, effect, effectText, shor
     this.effectText = effectText
     this.short = shortIdName
     this.varName - varName
+    this.reqInt = affectedBuildingInt
     this.owned = false
     
     this.buy = ()=>{
-        if (this.owned===false) {
-            dashPoints-=this.cost
-            this.affectedBuilding.dashPointsEarnedPerSecond+=Math.ceil((effect/100)*this.affectedBuilding.dashPointsEarnedPerSecond)
-            this.owned = true
-            console.log("Buying " + this.name + "...")
-            //this.removeUpgradeListing()
-        } else {
-            return false
+        if (dashPoints>=this.cost) {
+            if (this.owned===false) {
+                dashPoints-=this.cost
+                this.affectedBuilding.dashPointsEarnedPerSecond+=Math.ceil((effect/100)*this.affectedBuilding.dashPointsEarnedPerSecond)
+                this.owned = true
+                console.log("Buying " + this.name + "...")
+                this.removeUpgradeListing()
+            } else {
+                return false
+            }
+        } else { //button was not meant to be clicker, so we need to re add the onclick event listener
+            document.getElementById(this.short+"Button").onclick = ()=>{this.buy()}
         }
     }
 
@@ -25,6 +30,8 @@ class upgrade{constructor(name, cost, affectedBuilding, effect, effectText, shor
             let parent = document.getElementById("upgradeDisplay");
             var node = document.getElementById(this.name);
             parent.removeChild(node);
+
+            let display = document.getElementById("upgradeDisplay")
         }
     }
 
@@ -55,6 +62,16 @@ class upgrade{constructor(name, cost, affectedBuilding, effect, effectText, shor
             document.getElementById(this.short+"Button").onclick = ()=>{this.buy()}
         }
     }
+
+    this.earnUpgrade = ()=> { //might be a useless function here but eh may as well
+        if(this.affectedBuilding.amountOwned>=this.reqInt && this.owned===false) {
+            this.showUpgrade()
+        }
+    }
 }}
 
-var fasterTyping = new upgrade("Faster Typing", 20, SendAMessage, 3, "Sending messages are <strong>3%</strong> more effective", "FT", "fasterTyping")
+var fasterTyping = new upgrade("Faster Typing", 20, SendAMessage, 15, 3, "Sending messages are <strong>3%</strong> more effective", "FT", "fasterTyping")
+
+var upgrades = [
+    fasterTyping
+]
