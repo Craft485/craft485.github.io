@@ -24,7 +24,7 @@ body {
 }
 #currencyDisplay {
     float: left;
-    width: 50%;
+    width: 25%;
     margin-left: 0%;
     /*text-align: center;*/
 }
