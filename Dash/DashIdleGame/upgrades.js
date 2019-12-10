@@ -17,7 +17,7 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
                 this.affectedBuilding.dashPointsEarnedPerSecond+=Math.ceil((effect/100)*this.affectedBuilding.dashPointsEarnedPerSecond)
                 this.owned = true
                 console.log("Buying " + this.name + "...")
-                this.removeUpgradeListing()
+                this.removeUpgradeListing(document.getElementById(this.short+"Button"))//that looks...fun
             } else {
                 return false
             }
@@ -26,13 +26,12 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
         }
     }
 
-    this.removeUpgradeListing = ()=> {
+    this.removeUpgradeListing = (child)=> {
         if(this.owned === true) {
-            let parent = document.getElementById("upgradeDisplay");
-            var node = document.getElementById(this.name);
-            parent.removeChild(node);
-
+            //get display
             let display = document.getElementById("upgradeDisplay")
+            //remove the passed element from the display
+            display.removeChild(child)
         }
     }
 
