@@ -45,3 +45,7 @@ body {
     border-color: black;
     border-width: medium;
 }*/
+.chevDisplay {
+    float: left;
+    border-style: ridge;
+}

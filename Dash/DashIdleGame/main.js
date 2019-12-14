@@ -23,9 +23,18 @@ function checkForUpgrades() {
     }
 }
 
+function checkForAcheivments() {
+    checkForAcheivmentsForLoop:
+    for(i=0; i<allAcheivments.length; i++) {
+        let currentChev = allAcheivments[i]
+        currentChev.earn()
+    }
+}
+
 function tick() {
     addDashPointsPerSecond() //updates both dash points and dp per second
     checkForUpgrades() //check for any avalible upgrades
+    checkForAcheivments() //check if we can earn any acheivments
     setTimeout(()=>{
         tick()
     }, 1000)
