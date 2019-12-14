@@ -33,6 +33,9 @@ body {
     color: black;
     border: solid;
     /*border-radius: 50%;*/
+    user-select: none;/*chrome*/
+    -moz-user-select: none;/*firefox*/
+    -ms-user-select: none;/*Edge*/
 }
 .upgradeDisplay {
     float: right;
