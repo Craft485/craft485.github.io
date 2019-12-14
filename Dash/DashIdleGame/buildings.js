@@ -16,7 +16,7 @@ class building{constructor(name, shortName, cost, earnPerSecond){
             dashPointsPerSecond += this.dashPointsEarnedPerSecond //add dpps value
             this.amountOwned++
             document.getElementById(this.short + "AmountOwned").innerHTML = this.amountOwned //show how many of this building we have
-            document.getElementById(this.short + "DPPS").innerHTML = this.dashPointsEarnedPerSecond
+            document.getElementById(this.short + "DPPS").innerHTML = this.dashPointsEarnedPerSecond * this.amountOwned
         }
 
     }
