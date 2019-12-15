@@ -1,5 +1,5 @@
 var dashPoints = 0
-var dashPointsPerSecond = 0
+var dashPointsPerSecond = 10000
 //var neatPoints = 0
 //var repPoints
 
