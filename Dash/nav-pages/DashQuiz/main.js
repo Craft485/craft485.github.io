@@ -72,7 +72,7 @@ function loadHighScore() {
     } else {
         document.getElementById("highScore").innerHTML = window.localStorage.getItem('score')
         document.getElementById("highScoreDisplay").style = "width: auto; float: right; visibility: visible;"
-        document.getElementById("highScore").style = "visibility: visible;"
+        document.getElementById("highScore").style = "visibility: visible; color: white;"
     }
 }
 

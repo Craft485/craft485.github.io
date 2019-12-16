@@ -26,6 +26,7 @@
             border-width: medium;
             border-color: black;
             bottom: 1px;
+            color:white;
         }
         </style>
     </head>
@@ -46,10 +47,10 @@
         <button id="startBtn" class="startBtn" onclick="newGame()">Start New Game</button>
         <div class="game" id="game">
             <div style="width: auto; float: right; visibility: hidden;"  id="highScoreDisplay">
-                Your best score: <span id="highScore"></span>
+                <span style="color: white;">Your best score: </span><span id="highScore" style="color: white;"></span>
             </div>
-            <p>Score: <span id="scoreDisplay">0</span></p>
-            <div id="questionDisplay">
+            <p style="color: white;">Score: <span id="scoreDisplay">0</span></p>
+            <div id="questionDisplay" style="color: white;">
                 <!--Show question-->
             </div>
             <!--Answer Box Content-->
