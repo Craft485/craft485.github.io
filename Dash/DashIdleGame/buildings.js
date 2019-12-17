@@ -22,8 +22,8 @@ class building{constructor(name, shortName, cost, earnPerSecond){
     }
     /*
     this.bulkBuy = (x)=>{
-        if(dashPoints>=this.cost) {
-            dashPoints-=this.cost
+        if(dashPoints>=this.cost*x) {
+            dashPoints-=this.cost*x
             this.cost += Math.floor((1.05 * (this.cost*x))/2) //increase cost by +5%
         }
     }

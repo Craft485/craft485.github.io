@@ -18,7 +18,7 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
 
             this.owned = true
             
-            //this.showDescription()
+            //this.notify()
         }
     }
     
@@ -58,9 +58,11 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
     }
 }}
 
-var soManyMessages = new acheivment("SoManyMessages", SendAMessage, 10, "So Many Messages", "Send(have) 10 messages")
+var soManyMessages = new acheivment("SoManyMessages", SendAMessage, 50, "So Many Messages", "Send(have) 50 messages")
+var toManyMessages = new acheivment("ToManyMessages", SendAMessage, 100, "To Many Messages", "Send(have) 100 messages")
+var WayToManyNow = new acheivment("WayToManyNow!!", SendAMessage, 150, "Way To Many Now!", "Send(have) 150 messages")
 
 var allAcheivments = [
-    soManyMessages
+    soManyMessages, toManyMessages, WayToManyNow
     //obj
 ]
