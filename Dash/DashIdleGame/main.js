@@ -40,9 +40,13 @@ function loadSavedGameData() {
     let achievments = gameDataObj.achievments
     let upgrades = gameDataObj.upgrades
     for(i=0;i<buildings.length;i++) {
-        let currentBuilding = buildings[i] //currentBuilding is an obj from the array in saveGameData()
+        let currentBuilding = buildings[i] //currentBuilding is an obj from the building array in saveGameData()
         let cost = currentBuilding.cost*currentBuilding.amountOwned
         let owned = currentBuilding.amountOwned
+
+        currentBuilding.owned = owned
+        currentBuilding.dashPointsEarnedPerSecond = buildings[i].dashPointsEarnedPerSecond
+        dashPointsPerSecond += this.dashPointsEarnedPerSecond
 
         if(cost!==0) {
             document.getElementById(currentBuilding.short + "Cost").innerHTML = cost
@@ -104,6 +108,7 @@ function saveGameData() {
 }
 function checkSaveData() {
     let e = window.localStorage.getItem('gameData')
+    console.log(e)
     if(e==null||e==undefined) { //game has never been saved before
         saveGameData()
     } else { //else game has been saved before
