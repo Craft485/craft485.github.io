@@ -59,7 +59,7 @@ function loadSavedGameData() {
     for(i=0;i<allUpgrades.length;i++) {
         let currentUpgradeIndex = upgrades[i]
         currentUpgradeIndex.owned = currentUpgradeIndex.owned
-        let effect = currentUpgradeIndex.effec
+        let effect = currentUpgradeIndex.effect
         currentUpgradeIndex.affectedBuilding.dashPointsEarnedPerSecond+=Math.ceil((effect/100)*currentUpgradeIndex.affectedBuilding.dashPointsEarnedPerSecond)
     }
 
