@@ -73,6 +73,6 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
 
 var fasterTyping = new upgrade("Faster Typing", 20, SendAMessage, 15, 3, "Sending messages are <strong>3%</strong> more effective", "FT", "fasterTyping")
 
-var upgrades = [
+var allUpgrades = [
     fasterTyping
 ]

@@ -42,3 +42,7 @@ class building{constructor(name, shortName, cost, earnPerSecond){
 
 var SendAMessage = new building("Send a Message", "SAM", 15, 1)
 var ReadRulebook = new building("Read Rulebook", "RR", 50, 3)
+
+var allBuildings = [
+    SendAMessage, ReadRulebook
+]

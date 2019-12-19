@@ -32,15 +32,18 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
 
             let newPopUpName = document.createElement("p")
             newPopUpName.innerHTML = this.name
+            newPopUpName.style="margin-bottom: 0px;"
             //newPopUpName.style
             let newPopUpDesc = document.createElement("p")
             newPopUpDesc.innerHTML = this.description
+            newPopUpDesc.style = "margin-bottom: 0px;"
             newPopUp.appendChild(newPopUpName)
-            newPopUp.appendChild(document.createElement("br"))
+            //newPopUp.appendChild(document.createElement("br"))
             newPopUp.appendChild(newPopUpDesc)
             //newPopUp.innerHTML = this.description
 
-            newPopUp.style = "margin-left: 50%;"
+            newPopUp.style = "margin-left: 50%; border-style: solid; border-width: thin;"
+            newPopUp.setAttribute("id", this.name)
 
             let notifBar = document.getElementById("notificationBarWrapper")
 
@@ -54,6 +57,8 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
 
             //readd onclick event listener(anon arrow function)
             document.getElementById(this.name).onclick = ()=>{this.showDescription()}
+
+            //debugger
         }
     }
 }}
