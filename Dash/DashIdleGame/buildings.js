@@ -1,11 +1,12 @@
 //var buildingsOwned = 0
 
-class building{constructor(name, shortName, cost, earnPerSecond){
+class building{constructor(name, shortName, cost, earnPerSecond, repPerSecond=0){
     this.name = name
     this.short = shortName
     this.cost = cost
     this.dashPointsEarnedPerSecond = earnPerSecond //dpps
     this.amountOwned = 0
+    //this.earnRep = repPerSecond
 
     this.buy = ()=> {
         //do we have enough points to buy the building
@@ -40,9 +41,11 @@ class building{constructor(name, shortName, cost, earnPerSecond){
 
 }}
 
-var SendAMessage = new building("Send a Message", "SAM", 15, 1)
-var ReadRulebook = new building("Read Rulebook", "RR", 50, 3)
+var SendAMessage = new building("Send a Message", "SAM", 15, 1, 0)
+var ReadRulebook = new building("Read Rulebook", "RR", 50, 3, 0)
+var selfRoles = new building("Self Roles", "SR", 100, 5, 0)
+var tatsuCookiesRep = new building("Tasu's Cookies and Rep", "TCR", 200, 10, 1)
 
 var allBuildings = [
-    SendAMessage, ReadRulebook
+    SendAMessage, ReadRulebook, selfRoles, tatsuCookiesRep
 ]

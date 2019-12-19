@@ -121,4 +121,6 @@ function tick() {
 }
 tick()
 checkSaveData()
-console.warn("This game is still in HEAVY BETA!!" + "\n" + "Please be mindfull of any bugs or issues you may run into.")
+console.warn("NOTICE:"+"\n"+"This game is still in HEAVY BETA!!" + "\n" + 
+"Please be mindfull of any bugs or issues you may run into." + "\n" + 
+"Please be careful when playing around with the code, it's not the best code in the world")
