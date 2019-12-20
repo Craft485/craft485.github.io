@@ -67,7 +67,7 @@ var soManyMessages = new acheivment("SoManyMessages", SendAMessage, 50, "So Many
 var toManyMessages = new acheivment("ToManyMessages", SendAMessage, 100, "To Many Messages", "Send(have) 100 messages")
 var WayToManyNow = new acheivment("WayToManyNow!!", SendAMessage, 150, "Way To Many Now!", "Send(have) 150 messages")
 
-var allAcheivments = [
+var allAchievments = [
     soManyMessages, toManyMessages, WayToManyNow
     //obj
 ]

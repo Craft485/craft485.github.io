@@ -26,8 +26,8 @@ function checkForUpgrades() {
 
 function checkForAcheivments() {
     checkForAcheivmentsForLoop:
-    for(i=0; i<allAcheivments.length; i++) {
-        let currentChev = allAcheivments[i]
+    for(i=0; i<allAchievments.length; i++) {
+        let currentChev = allAchievments[i]
         currentChev.earn()
     }
 }
@@ -40,29 +40,33 @@ function loadSavedGameData() {
     let achievments = gameDataObj.achievments
     let upgrades = gameDataObj.upgrades
     for(i=0;i<buildings.length;i++) {
-        let currentBuilding = buildings[i] //currentBuilding is an obj from the building array in saveGameData()
-        let cost = currentBuilding.cost*currentBuilding.amountOwned
-        let owned = currentBuilding.amountOwned
+        let liveBuilding = allBuildings[i] //current constructor obj
+        let savedBuildingOwnedData = gameDataObj.buildings[i].amountOwned
+        let savedBuildingCostData = gameDataObj.buildings[i].cost
+        //console.log(savedBuildingData)
+        //let owned = savedBuildingData.amountOwned
+        let cost = savedBuildingCostData * savedBuildingOwnedData
 
-        currentBuilding.owned = owned
-        currentBuilding.dashPointsEarnedPerSecond = buildings[i].dashPointsEarnedPerSecond
-        dashPointsPerSecond += this.dashPointsEarnedPerSecond
-
+        liveBuilding.amountOwned = savedBuildingOwnedData
+        liveBuilding.cost = cost
+        //console.log(liveBuilding)
         if(cost!==0) {
-            document.getElementById(currentBuilding.short + "Cost").innerHTML = cost
+            document.getElementById(liveBuilding.short + "Cost").innerHTML = cost
+            //liveBuilding.cost = document.getElementById(liveBuilding.short + "Cost").innerHTML
         }
-        document.getElementById(currentBuilding.short + "AmountOwned").innerHTML = owned
+        document.getElementById(liveBuilding.short + "AmountOwned").innerHTML = savedBuildingOwnedData
+        //liveBuilding.amountOwned = document.getElementById(liveBuilding.short + "AmountOwned").innerHTML
     }
     for(i=0;i<achievments.length;i++) {
-        let currentChev = achievments[i] //currentChev is an object
+        let currentChev = allAchievments[i] //currentChev is an object
         let isOwned = currentChev.owned
         let chevName = achievments[i] //same obj name, so we can do something a little strange to get the result want
 
         chevName.owned = isOwned
     }
-    for(i=0;i<allUpgrades.length;i++) {
-        let currentUpgradeIndex = upgrades[i]
-        currentUpgradeIndex.owned = currentUpgradeIndex.owned
+    for(i=0;i<upgrades.length;i++) {
+        let currentUpgradeIndex = allUpgrades[i]
+        currentUpgradeIndex.owned = upgrades[i].owned
         let effect = currentUpgradeIndex.effect
         currentUpgradeIndex.affectedBuilding.dashPointsEarnedPerSecond+=Math.ceil((effect/100)*currentUpgradeIndex.affectedBuilding.dashPointsEarnedPerSecond)
     }
@@ -87,8 +91,8 @@ function saveGameData() {
     for(i=0;i<allBuildings.length;i++) { //store all building values
         buildingArray.push(allBuildings[i])
     }
-    for(i=0;i<allAcheivments.length;i++) { //store all achievment values
-        achievmentArray.push(allAcheivments[i])
+    for(i=0;i<allAchievments.length;i++) { //store all achievment values
+        achievmentArray.push(allAchievments[i])
     }
     for(i=0;i<allUpgrades.length;i++) { //store all upgrade values
         upgradeArray.push(allUpgrades[i])
@@ -108,7 +112,7 @@ function saveGameData() {
 }
 function checkSaveData() {
     let e = window.localStorage.getItem('gameData')
-    console.log(e)
+    //console.log(e)
     if(e==null||e==undefined) { //game has never been saved before
         saveGameData()
     } else { //else game has been saved before
