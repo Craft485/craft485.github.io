@@ -21,6 +21,7 @@ body {
     /*float: right;*/
     border-style: solid;
     border-color: black;
+    color: snow;
 }
 #currencyDisplay {
     float: left;
