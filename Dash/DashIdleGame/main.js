@@ -42,10 +42,13 @@ function loadSavedGameData() {
     for(i=0;i<buildings.length;i++) {
         let liveBuilding = allBuildings[i] //current constructor obj
         let savedBuildingOwnedData = gameDataObj.buildings[i].amountOwned
+        /*
         let savedBuildingCostData = gameDataObj.buildings[i].cost
-        //console.log(savedBuildingData)
-        //let owned = savedBuildingData.amountOwned
-        let cost = savedBuildingCostData * savedBuildingOwnedData
+        console.log(savedBuildingData)
+        let owned = savedBuildingData.amountOwned
+        */
+        let cost = liveBuilding.cost * savedBuildingOwnedData
+        let dpps = gameDataObj.buildings[i].dashPointsEarnedPerSecond * savedBuildingOwnedData
 
         liveBuilding.amountOwned = savedBuildingOwnedData
         liveBuilding.cost = cost
@@ -56,6 +59,7 @@ function loadSavedGameData() {
         }
         document.getElementById(liveBuilding.short + "AmountOwned").innerHTML = savedBuildingOwnedData
         //liveBuilding.amountOwned = document.getElementById(liveBuilding.short + "AmountOwned").innerHTML
+        document.getElementById(liveBuilding.short + "DPPS").innerHTML = dpps
     }
     for(i=0;i<achievments.length;i++) {
         let currentChev = allAchievments[i] //currentChev is an object
