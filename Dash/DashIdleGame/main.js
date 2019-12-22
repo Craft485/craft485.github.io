@@ -111,6 +111,8 @@ function saveGameData() {
 
     window.localStorage.setItem('gameData', JSON.stringify(gameDataObj))
 
+    saveNotif()
+
     setTimeout(()=>{
         saveGameData()
     }, 60000)
@@ -123,6 +125,20 @@ function checkSaveData() {
     } else { //else game has been saved before
         loadSavedGameData()
     }
+}
+
+function saveNotif() {
+    let notifDisplay = document.getElementById("notificationBarWrapper")
+
+    let newNotif = document.createElement('div')
+    newNotif.innerHTML = "Saving..."
+    newNotif.setAttribute('style', "color: gold; border-style: solid; border-width: medium; text-align: center") 
+
+    notifDisplay.appendChild(newNotif)
+
+    setTimeout(()=>{
+        notifDisplay.removeChild(newNotif)
+    }, 3000)
 }
 
 function tick() {
