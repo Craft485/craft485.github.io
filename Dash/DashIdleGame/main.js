@@ -48,14 +48,13 @@ function loadSavedGameData() {
             document.getElementById(liveBuilding.short + "Cost").innerHTML = liveBuilding.cost
         } else {
             cost = liveBuilding.cost //base cost
-            for (i=0; i<savedBuildingOwnedData; i++) {
+            for (e=0; e<savedBuildingOwnedData; e++) {
                 // process cost as though a single building has been purchased
                 cost += Math.floor((1.05 * cost)/2)
             }
             document.getElementById(liveBuilding.short + "Cost").innerHTML = cost //visibly set
             liveBuilding.cost = cost //set live backend value
         }
-
         let dpps = gameDataObj.buildings[i].dashPointsEarnedPerSecond * savedBuildingOwnedData
         liveBuilding.amountOwned = savedBuildingOwnedData
         
