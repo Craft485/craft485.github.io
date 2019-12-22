@@ -42,23 +42,24 @@ function loadSavedGameData() {
     for(i=0;i<buildings.length;i++) {
         let liveBuilding = allBuildings[i] //current constructor obj
         let savedBuildingOwnedData = gameDataObj.buildings[i].amountOwned
-        /*
-        let savedBuildingCostData = gameDataObj.buildings[i].cost
-        console.log(savedBuildingData)
-        let owned = savedBuildingData.amountOwned
-        */
-        let cost = liveBuilding.cost * savedBuildingOwnedData
-        let dpps = gameDataObj.buildings[i].dashPointsEarnedPerSecond * savedBuildingOwnedData
 
-        liveBuilding.amountOwned = savedBuildingOwnedData
-        liveBuilding.cost = cost
-        //console.log(liveBuilding)
-        if(cost!==0) {
-            document.getElementById(liveBuilding.short + "Cost").innerHTML = cost
-            //liveBuilding.cost = document.getElementById(liveBuilding.short + "Cost").innerHTML
+        if(savedBuildingOwnedData===0) {
+            //backend cost doesn't need changed since it'll be the base value
+            document.getElementById(liveBuilding.short + "Cost").innerHTML = liveBuilding.cost
+        } else {
+            cost = liveBuilding.cost //base cost
+            for (i=0; i<savedBuildingOwnedData; i++) {
+                // process cost as though a single building has been purchased
+                cost += Math.floor((1.05 * cost)/2)
+            }
+            document.getElementById(liveBuilding.short + "Cost").innerHTML = cost //visibly set
+            liveBuilding.cost = cost //set live backend value
         }
+
+        let dpps = gameDataObj.buildings[i].dashPointsEarnedPerSecond * savedBuildingOwnedData
+        liveBuilding.amountOwned = savedBuildingOwnedData
+        
         document.getElementById(liveBuilding.short + "AmountOwned").innerHTML = savedBuildingOwnedData
-        //liveBuilding.amountOwned = document.getElementById(liveBuilding.short + "AmountOwned").innerHTML
         document.getElementById(liveBuilding.short + "DPPS").innerHTML = dpps
     }
     for(i=0;i<achievments.length;i++) {
@@ -91,9 +92,10 @@ function saveGameData() {
     let buildingArray = []
     let achievmentArray = []
     let upgradeArray = []
-
+    console.log('Saving game data')
     for(i=0;i<allBuildings.length;i++) { //store all building values
         buildingArray.push(allBuildings[i])
+        console.log(allBuildings[i])
     }
     for(i=0;i<allAchievments.length;i++) { //store all achievment values
         achievmentArray.push(allAchievments[i])
