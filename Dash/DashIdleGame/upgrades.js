@@ -5,7 +5,7 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
     this.effect = effect
     this.effectText = effectText
     this.short = shortIdName
-    this.varName - varName
+    this.varName = varName
     this.reqInt = affectedBuildingInt
     this.owned = false
     this.earned = false
@@ -21,7 +21,7 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
             } else {
                 return false
             }
-        } else { //button was not meant to be clicker, so we need to re add the onclick event listener
+        } else { //button was not meant to be clicked, so we need to re add the onclick event listener
             document.getElementById(this.short+"Button").onclick = ()=>{this.buy()}
         }
     }

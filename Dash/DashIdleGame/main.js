@@ -70,10 +70,11 @@ function loadSavedGameData() {
         chevName.owned = isOwned
     }
     for(i=0;i<upgrades.length;i++) {
-        let currentUpgradeIndex = allUpgrades[i]
-        currentUpgradeIndex.owned = upgrades[i].owned
-        let effect = currentUpgradeIndex.effect
-        currentUpgradeIndex.affectedBuilding.dashPointsEarnedPerSecond+=Math.ceil((effect/100)*currentUpgradeIndex.affectedBuilding.dashPointsEarnedPerSecond)
+        let currentUpgradeIndex = allUpgrades[i] //live obj
+        currentUpgradeIndex.owned = upgrades[i].owned //set the live obj to the owned value of the stored
+        let effect = currentUpgradeIndex.effect //get the effect of the stored obj
+        let e = currentUpgradeIndex.affectedBuilding.dashPointsEarnedPerSecond
+        e+=Math.ceil((effect/100)*e) //apply the effect to the building
     }
 
     document.getElementById("dashPointsDisplay").innerHTML = gameDataArray[0]
@@ -92,10 +93,8 @@ function saveGameData() {
     let buildingArray = []
     let achievmentArray = []
     let upgradeArray = []
-    console.log('Saving game data')
     for(i=0;i<allBuildings.length;i++) { //store all building values
         buildingArray.push(allBuildings[i])
-        console.log(allBuildings[i])
     }
     for(i=0;i<allAchievments.length;i++) { //store all achievment values
         achievmentArray.push(allAchievments[i])
