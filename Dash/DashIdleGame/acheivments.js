@@ -18,13 +18,23 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
 
             this.owned = true
             
-            //this.notify()
+            this.notify(this.displayName)
         }
     }
     
-    /*this.notify = ()=>{
-        
-    }*/
+    this.notify = (displayName)=>{
+        let notifDisplay = document.getElementById("notificationBarWrapper")
+    
+        let newNotif = document.createElement('div')
+        newNotif.innerHTML = displayName
+        newNotif.setAttribute('style', "color: gold; border-style: solid; border-width: medium; text-align: center") 
+    
+        notifDisplay.appendChild(newNotif)
+    
+        setTimeout(()=>{
+            notifDisplay.removeChild(newNotif)
+        }, 3000)
+    }
 
     this.showDescription = ()=>{
         if(this.owned===true) {
