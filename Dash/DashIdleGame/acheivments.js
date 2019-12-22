@@ -16,6 +16,8 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
             let chev = iframeDoc.getElementById(this.name)
             chev.innerHTML = this.displayName
 
+            chev.onclick = ()=>{this.showDescription()}
+
             this.owned = true
             
             this.notify(this.displayName)
@@ -26,9 +28,17 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
         let notifDisplay = document.getElementById("notificationBarWrapper")
     
         let newNotif = document.createElement('div')
-        newNotif.innerHTML = displayName
         newNotif.setAttribute('style', "color: gold; border-style: solid; border-width: medium; text-align: center") 
+
+        let newNotif_Text = document.createElement('p')
+        newNotif_Text.innerHTML = displayName
+
+        let newNotif_Title = document.createElement("h1")
+        newNotif_Title.innerHTML = "New Achievment Unlocked!"
     
+        newNotif.appendChild(newNotif_Title)
+        newNotif.appendChild(newNotif_Text)
+
         notifDisplay.appendChild(newNotif)
     
         setTimeout(()=>{
@@ -76,8 +86,9 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
 var soManyMessages = new acheivment("SoManyMessages", SendAMessage, 50, "So Many Messages", "Send(have) 50 messages")
 var toManyMessages = new acheivment("ToManyMessages", SendAMessage, 100, "To Many Messages", "Send(have) 100 messages")
 var WayToManyNow = new acheivment("WayToManyNow!!", SendAMessage, 150, "Way To Many Now!", "Send(have) 150 messages")
+var thatsALottaMessages = new acheivment("ThatsALottaMessages", SendAMessage, 200, "That\'s a Lotta Messages", "Send(have) 200 messages")
 
 var allAchievments = [
-    soManyMessages, toManyMessages, WayToManyNow
+    soManyMessages, toManyMessages, WayToManyNow, thatsALottaMessages
     //obj
 ]

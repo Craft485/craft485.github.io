@@ -50,7 +50,7 @@ function loadSavedGameData() {
             cost = liveBuilding.cost //base cost
             for (e=0; e<savedBuildingOwnedData; e++) {
                 // process cost as though a single building has been purchased
-                cost += Math.floor((1.05 * cost)/2)
+                cost += Math.floor((1.05 * cost)/10)
             }
             document.getElementById(liveBuilding.short + "Cost").innerHTML = cost //visibly set
             liveBuilding.cost = cost //set live backend value
