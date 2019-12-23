@@ -91,7 +91,7 @@ function loadSavedGameData() {
 
         if(liveBuilding.repCost>0) { //the current building gives rep, so we need to load that
             let rpps = liveBuilding.repPerSecond * liveBuilding.amountOwned
-            console.log(rpps)
+            //console.log(rpps)
             //part of the loading is done here, the other part is up where we calculate costs
             document.getElementById(liveBuilding.short + "RPPS").innerHTML = rpps
         }
@@ -190,7 +190,7 @@ function saveNotif() {
 function tick() {
     addCurrencyPerSecond() //updates both dash points and dp per second
     checkForUpgrades() //check for any avalible upgrades
-    //checkForachievements() //check if we can earn any achievements
+    checkForachievements() //check if we can earn any achievements
     setTimeout(()=>{
         tick()
     }, 1000)
