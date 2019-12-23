@@ -25,8 +25,12 @@
             </p>
             <button class="btn" id="earnDashPointsBtn" onclick="addDashPoint()">Earn Dash Points</button><br/>
             <!--achievement content-->
-            <h1 style="border-style: solid; border-color: black;">Achievements</h1>
+            <h1 style="border-style: solid; border-color: black; text-align: center;">Achievements</h1>
             <iframe class="iFrame" src="achievement.html" id="AchievementIFrame" style="width: 600px;"></iframe>
+            <!--Notif Bar-->
+            <div id="notificationBarWrapper" style="width: 25%; clear: both;">
+                <!--Notif Bar Content-->
+            </div>
         </div>
 
         <div class="buildingsDisplay">
@@ -58,6 +62,7 @@
                 <button class="buildingCost" onclick="tatsuCookiesRep.buy()">Cost: <span id="TCRCost">200</span> Dash Points</button> <br/>
                 <span>Owned: <span id="TCRAmountOwned">0</span></span><br/>
                 <span>Dash Points per Second: </span><span class="buildingDPPS" id="TCRDPPS"></span><br/>
+                <span>Rep Points per Second: </span><span id="TCRRPPS">0</span>
             </div>
 
             <div class="building">
@@ -75,10 +80,6 @@
         <div class="upgradeDisplay" id="upgradeDisplay">
             <!--Upgrade Display Content-->
             <h1 class="contentHeader" style="text-align: center;">Upgrades</h1>
-        </div>
-
-        <div id="notificationBarWrapper" style="width: 25%; clear: both;">
-            <!--Notif Bar Content-->
         </div>
     </body>
 </html>

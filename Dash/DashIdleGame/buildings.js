@@ -23,11 +23,10 @@ class building{constructor(name, shortName, cost, earnPerSecond, repPerSecond=0,
             document.getElementById(this.short + "DPPS").innerHTML = this.dashPointsEarnedPerSecond * this.amountOwned
             if(this.repPerSecond>0) { //if true, this building uses rep
                 repPointsPerSecond += this.repPerSecond
+                document.getElementById(this.short + "RPPS").innerHTML = this.repPerSecond * this.amountOwned
                 if(this.repCost>0) {
                     this.repCost += Math.floor((1.05 * this.repCost)/10)
                     document.getElementById(this.short + "RCost").innerHTML = this.repCost
-
-                    document.getElementById(this.short + "RPPS").innerHTML = this.repPerSecond * this.amountOwned
                 }
             }
         }

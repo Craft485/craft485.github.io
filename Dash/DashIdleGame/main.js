@@ -89,7 +89,7 @@ function loadSavedGameData() {
         document.getElementById(liveBuilding.short + "AmountOwned").innerHTML = savedBuildingOwnedData
         document.getElementById(liveBuilding.short + "DPPS").innerHTML = dpps
 
-        if(liveBuilding.repCost>0) { //the current building gives rep, so we need to load that
+        if(liveBuilding.repPerSecond>0) { //the current building gives rep, so we need to load that
             let rpps = liveBuilding.repPerSecond * liveBuilding.amountOwned
             //console.log(rpps)
             //part of the loading is done here, the other part is up where we calculate costs
