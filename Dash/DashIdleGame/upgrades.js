@@ -57,9 +57,9 @@ class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, eff
             newUpgrade.appendChild(newUpgradeCost)
             newUpgrade.appendChild(document.createElement("br"))
             newUpgrade.appendChild(newUpgradeEffect)
+            newUpgrade.appendChild(document.createElement("br"))
             //append the final product to the display div
             upgradeDisplay.appendChild(newUpgrade)
-            upgradeDisplay.appendChild(document.createElement("br"))
             //give the  upgrade an onclick event
             document.getElementById(this.short+"Button").onclick = ()=>{this.buy()}
         }
@@ -84,6 +84,9 @@ var botsChannel = new upgrade("The #Bots Channel", 70, selfRoles, 5, 3, "Having 
 var cozy = new upgrade("Pillow Role", 200, selfRoles, 10, 5, "Get the pillow role, <strong>+5%</strong> to self roles", "C", "cozy")
 var serious = new upgrade("Chip of Life", 500, selfRoles, 20, 10, "Get the Chip of Life role, <strong>+10%</strong> to self roles", "S", "serious")
 
+var betterDough  = new upgrade("BetterDough", 200, tatsuCookiesRep, 5, 3, "Tasus are <strong>3%</strong> more effective", "BD", "betterDough")
+var moreSugar = new upgrade("MoreSugar", 700, tatsuCookiesRep, 10, 5, "Tatsus are <strong>5%</strong> more effective", "MS", "moreSugar")
+var specialIngredient = new upgrade("SpecialIngredient", 1000, tatsuCookiesRep, 20, 10, "Tatsus are <strong>10%</strong> more effective", "SI", "specialIngredient")
 
 //name, cost, affectedBuilding, affectedBuildingInt, effect, effectText, shortIdName, varName
 
@@ -91,5 +94,6 @@ var serious = new upgrade("Chip of Life", 500, selfRoles, 20, 10, "Get the Chip 
 var allUpgrades = [
     fasterTyping, quickerFingers, fastestFingersInTheWest,
     readAndDone, noSpam, aPingableNick,
-    botsChannel, cozy, serious
+    botsChannel, cozy, serious,
+    betterDough, moreSugar, specialIngredient
 ]
