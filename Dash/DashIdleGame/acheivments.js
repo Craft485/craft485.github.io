@@ -83,12 +83,34 @@ class acheivment{constructor(name, neededBuilding, neededBuildingAmount, display
     }
 }}
 
-var soManyMessages = new acheivment("SoManyMessages", SendAMessage, 50, "So Many Messages", "Send(have) 50 messages")
-var toManyMessages = new acheivment("ToManyMessages", SendAMessage, 100, "To Many Messages", "Send(have) 100 messages")
-var WayToManyNow = new acheivment("WayToManyNow!!", SendAMessage, 150, "Way To Many Now!", "Send(have) 150 messages")
-var thatsALottaMessages = new acheivment("ThatsALottaMessages", SendAMessage, 200, "That\'s a Lotta Messages", "Send(have) 200 messages")
+var soManyMessages = new acheivment("SoManyMessages", SendAMessage, 10, "So Many Messages", "Send(have) 50 messages")
+var toManyMessages = new acheivment("ToManyMessages", SendAMessage, 50, "To Many Messages", "Send(have) 100 messages")
+var WayToManyNow = new acheivment("WayToManyNow!!", SendAMessage, 100, "Way To Many Now!", "Send(have) 150 messages")
+var thatsALottaMessages = new acheivment("ThatsALottaMessages", SendAMessage, 150, "That\'s a Lotta Messages", "Send(have) 200 messages")
+var borderlineSpam = new acheivment("BorderlineSpam", SendAMessage, 200, "Borderline Spam", "Send(have) 300 messages")
+
+var IReadIt = new acheivment("IReadIt", ReadRulebook, 10, "I Read It", "Read the rulebook 10 times")
+var anotherRead = new acheivment("AnotherRead", ReadRulebook, 50, "Another Read", "Read rulebook 50 times")
+var scholar = new acheivment("Scholar", ReadRulebook, 100, "Scholar", "Read rulebook 100 times")
+var whensTheTest = new acheivment("Whensthetest", ReadRulebook, 150, "When's the test?", "Read rulebook 150 times")
+var photographicMemory = new acheivment("PhotographicMemory", ReadRulebook, 200, "Photographic Memory", "Read rulebook 200 times")
+
+var rolePlusPlus = new acheivment("RolesPlusPlus", selfRoles, 10, "Roles++", "Have 10 self roles")
+var youGetARole = new acheivment("YouGetARole", selfRoles, 50, "You get a role!", "Have 50 self roles")
+var anExtraRole = new acheivment("AnExtraRole", selfRoles, 100, "An Extra Role Won't Hurt", "Have 100 self roles")
+var maybeToMany = new acheivment("MaybeToMany", selfRoles, 150, "Maybe to many now", "Have 150 roles")
+var rolesGalore = new acheivment("RolesGalore", selfRoles, 200, "Roles Galore!", "Have 200 self roles")
+
+var cookiezz = new acheivment("Cookiez", tatsuCookiesRep, 10, "Cookies!", "Have 10 Tatsus")
+var repAnyone = new acheivment("RepAnyone", tatsuCookiesRep, 50, "Rep Anyone?", "Have 50 Tatsus")
+var cookiesWithSideOfRep = new acheivment("CookiesWithSideOfRep", tatsuCookiesRep, 100, "Cookies With a Side of Rep", "Have 100 Tatsus")
+var baking = new acheivment("Baking", tatsuCookiesRep, 150, "Baking 100", "Have 150 Tatsus")
+var mrPopular = new acheivment("MrPopular", tatsuCookiesRep, 200, "Mr. Popular", "Have 200 Tatsus")
 
 var allAchievments = [
-    soManyMessages, toManyMessages, WayToManyNow, thatsALottaMessages
-    //obj
+    soManyMessages, toManyMessages, WayToManyNow, thatsALottaMessages, borderlineSpam,
+    IReadIt, anotherRead, scholar, whensTheTest, photographicMemory,
+    rolePlusPlus, youGetARole, anExtraRole, maybeToMany, rolesGalore,
+    cookiezz, repAnyone, cookiesWithSideOfRep, baking, mrPopular
+    //obj/constructor class
 ]

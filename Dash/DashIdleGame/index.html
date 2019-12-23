@@ -15,8 +15,14 @@
         <script defer src="main.js"></script>
 
         <div id="currencyDisplay">
-            <p>You have <span id="dashPointsDisplay">0</span> Dash Points</p>
-            <p><span id="DPPSDisplay">0</span> Dash Points per Second</p>
+            <p>
+                You have <span id="dashPointsDisplay">0</span> Dash Points||
+                <span id="repPointsDisplay" style="visibility: hidden;">You have 0 Rep Points||</span>
+            </p>
+            <p>
+                <span id="DPPSDisplay">0</span> Dash Points per Second||
+                <span id="RPPSDisplay" style="visibility: hidden;"></span>
+            </p>
             <button class="btn" id="earnDashPointsBtn" onclick="addDashPoint()">Earn Dash Points</button><br/>
             <!--Acheivment content-->
             <h1 style="border-style: solid; border-color: black;">Achievments</h1>
@@ -54,6 +60,16 @@
                 <span>Dash Points per Second: </span><span class="buildingDPPS" id="TCRDPPS"></span><br/>
             </div>
 
+            <div class="building">
+                <span class="buildingName">Name: <strong>Voice Channels</strong></span> <br/>
+                <button class="buildingCost" onclick="voiceChannels.buy()">
+                    Cost: <span id="VCCost">500</span> Dash Points and 
+                    <span id="VCRCost">10</span> Rep Points
+                </button> <br/>
+                <span>Owned: <span id="VCAmountOwned">0</span></span><br/>
+                <span>Dash Points per Second: <span class="buildingDPPS" id="VCDPPS"></span></span><br/>
+                <span>Rep Points per Second: <span id="VCRPPS"></span></span>
+            </div>
         </div>
 
         <div class="upgradeDisplay" id="upgradeDisplay">

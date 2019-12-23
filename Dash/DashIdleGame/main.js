@@ -1,7 +1,14 @@
+/*
+=========
+TODO
+fix NAN on rpps display
+fix rep and rpps display on load
+*/  
 var dashPoints = 0
 var dashPointsPerSecond = 0
 //var neatPoints = 0
-//var repPoints
+var repPoints = 0
+var repPointsPerSecond = 0
 //var honey or bee points?
 
 function addDashPoint() {
@@ -9,10 +16,19 @@ function addDashPoint() {
     document.getElementById("dashPointsDisplay").innerHTML = dashPoints
 }
 
-function addDashPointsPerSecond() {
+function addCurrencyPerSecond() {
+    //update DashPoints
     dashPoints += dashPointsPerSecond
     document.getElementById("DPPSDisplay").innerHTML = dashPointsPerSecond
     document.getElementById("dashPointsDisplay").innerHTML = dashPoints
+
+    if(repPointsPerSecond>0) {
+        document.getElementById("RPPSDisplay").innerHTML = repPointsPerSecond + " Rep Points per Second||"
+        repPoints+=repPointsPerSecond
+        document.getElementById("repPointsDisplay").innerHTML = "You have "+repPoints+" Rep Points||"
+        document.getElementById("repPointsDisplay").style = "visibility: visible;"
+        document.getElementById("RPPSDisplay").style = "visibility: visible"
+    }
 }
 
 function checkForUpgrades() {
@@ -48,9 +64,21 @@ function loadSavedGameData() {
             document.getElementById(liveBuilding.short + "Cost").innerHTML = liveBuilding.cost
         } else {
             cost = liveBuilding.cost //base cost
-            for (e=0; e<savedBuildingOwnedData; e++) {
+            let repCost
+            liveBuilding.repCost>0 ? repCost=liveBuilding.repCost : repCost = "unknown"
+            //let repCost = liveBuilding.repCost
+            for (e=0; e<savedBuildingOwnedData; e++) { //using e because this is in another for loop using i
                 // process cost as though a single building has been purchased
                 cost += Math.floor((1.05 * cost)/10)
+                if(liveBuilding.repCost>0) {
+                    //building uses rep, so we need to calculate the rep cost
+                    repCost += Math.floor((1.05 * repCost)/10)
+                }
+            }
+            //this is around the point where I could feel my sanity slipping, not slowly either
+            if(liveBuilding.repCost>0) {
+                document.getElementById(liveBuilding.short + "RCost").innerHTML = repCost
+                liveBuilding.repCost = repCost
             }
             document.getElementById(liveBuilding.short + "Cost").innerHTML = cost //visibly set
             liveBuilding.cost = cost //set live backend value
@@ -60,7 +88,16 @@ function loadSavedGameData() {
         
         document.getElementById(liveBuilding.short + "AmountOwned").innerHTML = savedBuildingOwnedData
         document.getElementById(liveBuilding.short + "DPPS").innerHTML = dpps
+
+        if(liveBuilding.repCost>0) { //the current building gives rep, so we need to load that
+            let rpps = liveBuilding.repPerSecond * liveBuilding.amountOwned
+            console.log(rpps)
+            //part of the loading is done here, the other part is up where we calculate costs
+            document.getElementById(liveBuilding.short + "RPPS").innerHTML = rpps
+        }
     }
+    //thats a big for loop dear god lets not do that again
+    //for>if/if/else>if/for>if... oh no
     for(i=0;i<achievments.length;i++) {
         let currentChev = allAchievments[i] //currentChev is an object
         let isOwned = currentChev.owned
@@ -78,15 +115,25 @@ function loadSavedGameData() {
 
     document.getElementById("dashPointsDisplay").innerHTML = gameDataArray[0]
     document.getElementById("DPPSDisplay").innerHTML = gameDataArray[1]
+    document.getElementById("repPointsDisplay").innerHTML = gameDataArray[2]
+    document.getElementById("RPPSDisplay").innerHTML = gameDataArray[3]
     dashPoints=gameDataArray[0]
     dashPointsPerSecond=gameDataArray[1]
+    repPoints = gameDataArray[2]
+    repPointsPerSecond = gameDataArray[3]
+
+    if(repPoints>0 || repPointsPerSecond>0) { //if we have rep we need to show the values
+        document.getElementById("repPointsDisplay").style = "visibility: visible"
+        document.getElementById("RPPSDisplay").style = "visibility: visible"
+    }
 
     saveGameData()
 }
 function saveGameData() {
     //recursive localStorage save function that gets called every minute
     let gameData = [
-        dashPoints, dashPointsPerSecond //store dash points total and dpps
+        dashPoints, dashPointsPerSecond, //store dash points total and dpps
+        repPoints, repPointsPerSecond
     ]
 
     let buildingArray = []
@@ -141,14 +188,20 @@ function saveNotif() {
 }
 
 function tick() {
-    addDashPointsPerSecond() //updates both dash points and dp per second
+    addCurrencyPerSecond() //updates both dash points and dp per second
     checkForUpgrades() //check for any avalible upgrades
-    checkForAcheivments() //check if we can earn any acheivments
+    //checkForAcheivments() //check if we can earn any acheivments
     setTimeout(()=>{
         tick()
     }, 1000)
 }
 tick()
+/*
+=================================
+WORLD DOMINATION IMPOSED YOU PECC
+=================================
+have a nice day 💠
+*/
 checkSaveData()
 console.warn("NOTICE:"+"\n"+"This game is still in HEAVY BETA!!" + "\n" + 
 "Please be mindfull of any bugs or issues you may run into." + "\n" + 
