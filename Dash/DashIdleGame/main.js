@@ -53,7 +53,7 @@ function loadSavedGameData() {
     let gameDataArray = gameDataObj.standardData
 
     let buildings = gameDataObj.buildings
-    let Achievements = gameDataObj.achievements
+    let Achievements = gameDataObj.Achievements
     let upgrades = gameDataObj.upgrades
     for(i=0;i<buildings.length;i++) {
         let liveBuilding = allBuildings[i] //current constructor obj
