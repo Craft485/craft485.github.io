@@ -88,6 +88,10 @@ var betterDough  = new upgrade("BetterDough", 200, tatsuCookiesRep, 5, 3, "Tasus
 var moreSugar = new upgrade("MoreSugar", 700, tatsuCookiesRep, 10, 5, "Tatsus are <strong>5%</strong> more effective", "MS", "moreSugar")
 var specialIngredient = new upgrade("SpecialIngredient", 1000, tatsuCookiesRep, 20, 10, "Tatsus are <strong>10%</strong> more effective", "SI", "specialIngredient")
 
+var lobbyVoice = new upgrade("LobbyVoice", 700, voiceChannels, 5, 3, "Voice channels are <strong>3%</strong> more effective", "LV", "lobbyVoice")
+var cozyVoice = new upgrade("CozyVoice", 1000, voiceChannels, 10, 5, "Voice channels are <strong>5%</strong> more effective", "CV", "cozyVoice")
+var gamingVoice = new upgrade("GamingVoice", 1500, voiceChannels, 20, 10, "Voice channels are <strong>10%</strong> more effective", "GV", "gamingVoice")
+
 //name, cost, affectedBuilding, affectedBuildingInt, effect, effectText, shortIdName, varName
 
 
@@ -95,5 +99,6 @@ var allUpgrades = [
     fasterTyping, quickerFingers, fastestFingersInTheWest,
     readAndDone, noSpam, aPingableNick,
     botsChannel, cozy, serious,
-    betterDough, moreSugar, specialIngredient
+    betterDough, moreSugar, specialIngredient,
+    lobbyVoice, cozyVoice, gamingVoice
 ]

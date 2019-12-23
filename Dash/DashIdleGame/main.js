@@ -40,10 +40,10 @@ function checkForUpgrades() {
     }
 }
 
-function checkForAcheivments() {
-    checkForAcheivmentsForLoop:
-    for(i=0; i<allAchievments.length; i++) {
-        let currentChev = allAchievments[i]
+function checkForachievements() {
+    checkForachievementsForLoop:
+    for(i=0; i<allAchievements.length; i++) {
+        let currentChev = allAchievements[i]
         currentChev.earn()
     }
 }
@@ -53,7 +53,7 @@ function loadSavedGameData() {
     let gameDataArray = gameDataObj.standardData
 
     let buildings = gameDataObj.buildings
-    let achievments = gameDataObj.achievments
+    let Achievements = gameDataObj.Achievements
     let upgrades = gameDataObj.upgrades
     for(i=0;i<buildings.length;i++) {
         let liveBuilding = allBuildings[i] //current constructor obj
@@ -98,10 +98,10 @@ function loadSavedGameData() {
     }
     //thats a big for loop dear god lets not do that again
     //for>if/if/else>if/for>if... oh no
-    for(i=0;i<achievments.length;i++) {
-        let currentChev = allAchievments[i] //currentChev is an object
+    for(i=0;i<Achievements.length;i++) {
+        let currentChev = allAchievements[i] //currentChev is an object
         let isOwned = currentChev.owned
-        let chevName = achievments[i] //same obj name, so we can do something a little strange to get the result want
+        let chevName = Achievements[i] //same obj name, so we can do something a little strange to get the result want
 
         chevName.owned = isOwned
     }
@@ -137,13 +137,13 @@ function saveGameData() {
     ]
 
     let buildingArray = []
-    let achievmentArray = []
+    let AchievementArray = []
     let upgradeArray = []
     for(i=0;i<allBuildings.length;i++) { //store all building values
         buildingArray.push(allBuildings[i])
     }
-    for(i=0;i<allAchievments.length;i++) { //store all achievment values
-        achievmentArray.push(allAchievments[i])
+    for(i=0;i<allAchievements.length;i++) { //store all Achievement values
+        AchievementArray.push(allAchievements[i])
     }
     for(i=0;i<allUpgrades.length;i++) { //store all upgrade values
         upgradeArray.push(allUpgrades[i])
@@ -152,7 +152,7 @@ function saveGameData() {
     var gameDataObj = {}
     gameDataObj.standardData = gameData
     gameDataObj.buildings = buildingArray
-    gameDataObj.achievments = achievmentArray
+    gameDataObj.Achievements = AchievementArray
     gameDataObj.upgrades = upgradeArray
 
     window.localStorage.setItem('gameData', JSON.stringify(gameDataObj))
@@ -190,7 +190,7 @@ function saveNotif() {
 function tick() {
     addCurrencyPerSecond() //updates both dash points and dp per second
     checkForUpgrades() //check for any avalible upgrades
-    //checkForAcheivments() //check if we can earn any acheivments
+    //checkForachievements() //check if we can earn any achievements
     setTimeout(()=>{
         tick()
     }, 1000)
