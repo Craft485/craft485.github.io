@@ -25,16 +25,6 @@
                 <span id="RPPSDisplay" style="visibility: hidden;"></span>
             </p>
             <button class="btn" id="earnDashPointsBtn" onclick="addDashPoint()">Earn Dash Points</button><br/>
-            <!--Enter on form bug, brought to attention but tea-->
-            <!--Github issue: https://github.com/Craft485/craft485.github.io/issues/1 -->
-            <!--
-                fix given was to make a hidden button that would "absorb" the form submit, however this seems to 
-                not be the only way to fix this, we might be able to catch the submit and preventDefault()
-                although we've had issues with this method call in the past
-            -->
-            <!--Stackoverflow, possible fixes: 
-            https://stackoverflow.com/questions/4075486/prevent-a-button-to-submit-on-enter-key 
-            -->
             <!--achievement content-->
             <h1 style="border-style: solid; border-color: black; text-align: center;">Achievements</h1>
             <iframe class="iFrame" src="achievement.html" id="AchievementIFrame" style="width: 600px;"></iframe>
@@ -92,21 +82,5 @@
             <!--Upgrade Display Content-->
             <h1 class="contentHeader" style="text-align: center;">Upgrades</h1>
         </div>
-
-        <script>
-        $('earnDashPointsBtn').on('keyup keypress', function(e) {
-          var keyCode = e.keyCode || e.which;
-          if (keyCode === 13) { 
-            e.preventDefault();
-            return false;
-          }
-        });
-        //most likely failed script, since JQuery will be disabled half the time during testing
-        /*
-        may need to test on the live version, the cross origin issue with iFrames has "paused" some
-        scripts from firing. Will look into later
-        */
-        </script>
-
     </body>
 </html>

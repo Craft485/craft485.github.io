@@ -189,7 +189,17 @@ function saveNotif() {
     }, 3000)
 }
 
+function preventEnter() { //prevent bug with holding enter to get dashPoints faster
+    document.getElementById("earnDashPointsBtn").onkeypress = function(e) {
+        var key = e.charCode || e.keyCode || 0;     
+        if (key == 13) {
+            e.preventDefault();
+        }
+    }
+}
+
 function tick() {
+    preventEnter()
     addCurrencyPerSecond() //updates both dash points and dp per second
     checkForUpgrades() //check for any avalible upgrades
     checkForachievements() //check if we can earn any achievements
