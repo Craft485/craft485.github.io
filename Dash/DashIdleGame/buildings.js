@@ -1,6 +1,6 @@
 //var buildingsOwned = 0
 
-class building{constructor(name, shortName, cost, earnPerSecond, repPerSecond=0, repCost=0){
+class building{constructor(name="", shortName="", cost=0, earnPerSecond=0, repPerSecond=0, repCost=0){
     this.name = name
     this.short = shortName
     this.cost = cost

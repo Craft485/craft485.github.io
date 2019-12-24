@@ -1,4 +1,4 @@
-class upgrade{constructor(name, cost, affectedBuilding, affectedBuildingInt, effect, effectText, shortIdName, varName){
+class upgrade{constructor(name="", cost=0, affectedBuilding=Object, affectedBuildingInt=0, effect=0, effectText="", shortIdName="", varName=""){
     this.name = name
     this.cost = cost
     this.affectedBuilding = affectedBuilding

@@ -1,4 +1,4 @@
-class achievement{constructor(name, neededBuilding, neededBuildingAmount, displayName, desc){
+class achievement{constructor(name="", neededBuilding=Object, neededBuildingAmount=0, displayName="", desc=""){
     this.name = name
     this.displayName = displayName
 

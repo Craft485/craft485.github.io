@@ -1,10 +1,12 @@
 /*
 =========
 TODO
-fix NAN on rpps display
-fix rep and rpps display on load
+fix NAN on rpps display -DONE
+fix rep and rpps display on load -DONE
+add 32x32 graphics for achievement images
+add ascension
 */  
-var dashPoints = 0
+var dashPoints = 0 
 var dashPointsPerSecond = 0
 //var neatPoints = 0
 var repPoints = 0
