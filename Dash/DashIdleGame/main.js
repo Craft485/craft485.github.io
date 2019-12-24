@@ -1,17 +1,14 @@
 /*
 =========
 TODO
-fix NAN on rpps display -DONE
-fix rep and rpps display on load -DONE
 add 32x32 graphics for achievement images
 add ascension
+=========
 */  
 var dashPoints = 0 
 var dashPointsPerSecond = 0
-//var neatPoints = 0
 var repPoints = 0
 var repPointsPerSecond = 0
-//var honey or bee points?
 
 function addDashPoint() {
     dashPoints++
@@ -199,7 +196,7 @@ function preventEnter() { //prevent bug with holding enter to get dashPoints fas
 }
 
 function tick() {
-    preventEnter()
+    //preventEnter()
     addCurrencyPerSecond() //updates both dash points and dp per second
     checkForUpgrades() //check for any avalible upgrades
     checkForachievements() //check if we can earn any achievements

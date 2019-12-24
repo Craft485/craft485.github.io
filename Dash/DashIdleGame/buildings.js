@@ -1,4 +1,8 @@
-//var buildingsOwned = 0
+/*
+TODO:
+add bulk buying
+add selling
+*/
 
 class building{constructor(name="", shortName="", cost=0, earnPerSecond=0, repPerSecond=0, repCost=0){
     this.name = name
@@ -32,14 +36,14 @@ class building{constructor(name="", shortName="", cost=0, earnPerSecond=0, repPe
         }
 
     }
-    /*
-    this.bulkBuy = (x)=>{
-        if(dashPoints>=this.cost*x) {
-            dashPoints-=this.cost*x
-            this.cost += Math.floor((1.05 * (this.cost*x))/2) //increase cost by +5%
+    //beta testing function
+    this.buy = (x)=>{
+        //x is how many we are buying
+        for(i=0; i<x; i++) {
+            this.buy()//call buy x times
         }
-    } //BUY BUY BUY!!
-    
+    }
+    /*
     this.sell = ()=> { //sell in increments of 1
         if(this.amountOwned > 0) {
             let refund = Math.floor(this.cost - (0.05 / this.cost))/2
