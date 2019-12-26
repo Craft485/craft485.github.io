@@ -4,7 +4,7 @@ add bulk buying
 add selling
 */
 
-class building{constructor(name="", shortName="", cost=0, earnPerSecond=0, repPerSecond=0, repCost=0){
+class building{constructor(name, shortName, cost, earnPerSecond, repPerSecond, repCost){
     this.name = name
     this.short = shortName
     this.cost = cost
@@ -56,9 +56,9 @@ class building{constructor(name="", shortName="", cost=0, earnPerSecond=0, repPe
     */
 }}
 
-var SendAMessage = new building("Send a Message", "SAM", 15, 1, 0)
-var ReadRulebook = new building("Read Rulebook", "RR", 50, 3, 0)
-var selfRoles = new building("Self Roles", "SR", 100, 5, 0)
+var SendAMessage = new building("Send a Message", "SAM", 15, 1, 0, 0)
+var ReadRulebook = new building("Read Rulebook", "RR", 50, 3, 0, 0)
+var selfRoles = new building("Self Roles", "SR", 100, 5, 0, 0)
 var tatsuCookiesRep = new building("Tasu's Cookies and Rep", "TCR", 200, 10, 1, 0)
 var voiceChannels = new building("Voice Channels", "VC", 500, 15, 2, 10)
 //name, shortName, cost, earnPerSecond, repPerSecond=0, repCost=0
