@@ -52,7 +52,7 @@ function loadSavedGameData() {
     let gameDataArray = gameDataObj.standardData
 
     let buildings = gameDataObj.buildings
-    let Achievements = gameDataObj.Achievements
+    let Achievements = gameDataObj.achievements
     let upgrades = gameDataObj.upgrades
     for(i=0;i<buildings.length;i++) {
         let liveBuilding = allBuildings[i] //current constructor obj
@@ -97,7 +97,7 @@ function loadSavedGameData() {
     }
     //thats a big for loop dear god lets not do that again
     //for>if/if/else>if/for>if... oh no
-    for(i=0;i<gameDataObj.Achievements.length;i++) {
+    for(i=0;i<gameDataObj.achievements.length;i++) {
         let currentChev = allAchievements[i] //currentChev is an object
         let isOwned = currentChev.owned
         let chevName = Achievements[i] //same obj name, so we can do something a little strange to get the result want
@@ -136,13 +136,13 @@ function saveGameData() {
     ]
 
     let buildingArray = []
-    let AchievementArray = []
+    let achievementArray = []
     let upgradeArray = []
     for(i=0;i<allBuildings.length;i++) { //store all building values
         buildingArray.push(allBuildings[i])
     }
     for(i=0;i<allAchievements.length;i++) { //store all Achievement values
-        AchievementArray.push(allAchievements[i])
+        achievementArray.push(allAchievements[i])
     }
     for(i=0;i<allUpgrades.length;i++) { //store all upgrade values
         upgradeArray.push(allUpgrades[i])
@@ -151,7 +151,7 @@ function saveGameData() {
     var gameDataObj = {}
     gameDataObj.standardData = gameData
     gameDataObj.buildings = buildingArray
-    gameDataObj.Achievements = AchievementArray
+    gameDataObj.achievements = achievementArray
     gameDataObj.upgrades = upgradeArray
 
     window.localStorage.setItem('gameData', JSON.stringify(gameDataObj))
