@@ -37,7 +37,7 @@ class building{constructor(name, shortName, cost, earnPerSecond, repPerSecond, r
 
     }
     //beta testing function
-    this.buy = (x)=>{
+    this.bulkBuy = (x)=>{
         //x is how many we are buying
         for(i=0; i<x; i++) {
             this.buy()//call buy x times

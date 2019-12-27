@@ -151,7 +151,7 @@ function saveGameData() {
     var gameDataObj = {}
     gameDataObj.standardData = gameData
     gameDataObj.buildings = buildingArray
-    gameDataObj.achievements = achievementArray
+    gameDataObj.Achievements = achievementArray
     gameDataObj.upgrades = upgradeArray
 
     window.localStorage.setItem('gameData', JSON.stringify(gameDataObj))
