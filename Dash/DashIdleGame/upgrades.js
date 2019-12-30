@@ -8,15 +8,18 @@ class upgrade{constructor(name="", cost=0, affectedBuilding=Object, affectedBuil
     this.varName = varName
     this.reqInt = affectedBuildingInt
     this.owned = false
-    this.earned = false
     
     this.buy = ()=>{
         if (dashPoints>=this.cost) {
             if (this.owned===false) {
                 dashPoints-=this.cost
                 this.affectedBuilding.dashPointsEarnedPerSecond+=Math.ceil((effect/100)*this.affectedBuilding.dashPointsEarnedPerSecond)
+                document.getElementById(this.affectedBuilding.short + "DPPS").innerHTML = this.affectedBuilding.dashPointsEarnedPerSecond
                 this.owned = true
                 console.log("Buying " + this.name + "...")
+                if(this.affectedBuilding.repPerSecond!==null) {
+                    document.getElementById(this.affectedBuilding.short + "RPPS").innerHTML = this.affectedBuilding.repPerSecond
+                }
                 this.removeUpgradeListing(document.getElementById(this.short+"Button"))//that looks...fun
             } else {
                 return false
@@ -37,7 +40,7 @@ class upgrade{constructor(name="", cost=0, affectedBuilding=Object, affectedBuil
 
     this.showUpgrade = ()=>{
         if(this.owned===false) {
-            this.earned=true
+            this.owned=true
             let upgradeDisplay = document.getElementById("upgradeDisplay")
             //create the button which will be a wrapper for the rest of the upgrade
             let newUpgrade = document.createElement("button")
@@ -66,7 +69,7 @@ class upgrade{constructor(name="", cost=0, affectedBuilding=Object, affectedBuil
     }
 
     this.earnUpgrade = ()=> { //might be a useless function here but eh may as well
-        if(this.affectedBuilding.amountOwned>=this.reqInt && this.owned===false && this.earned===false) {
+        if(this.affectedBuilding.amountOwned>=this.reqInt && this.owned===false) {
             this.showUpgrade()
         }
     }
