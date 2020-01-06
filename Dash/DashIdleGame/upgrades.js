@@ -18,7 +18,7 @@ class upgrade{constructor(name="", cost=0, affectedBuilding=Object, affectedBuil
                 document.getElementById(this.affectedBuilding.short + "DPPS").innerHTML = this.affectedBuilding.dashPointsEarnedPerSecond
                 this.owned = true
                 console.log("Buying " + this.name + "...")
-                if(this.affectedBuilding.repPerSecond!==null) {
+                if(this.affectedBuilding.repPerSecond!==0) {
                     document.getElementById(this.affectedBuilding.short + "RPPS").innerHTML = this.affectedBuilding.repPerSecond
                 }
                 this.removeUpgradeListing(document.getElementById(this.short+"Button"))//that looks...fun
