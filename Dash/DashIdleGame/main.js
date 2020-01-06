@@ -9,6 +9,7 @@ var dashPoints = 0
 var dashPointsPerSecond = 0
 var repPoints = 0
 var repPointsPerSecond = 0
+var bulkBuying = 0
 
 function addDashPoint() {
     dashPoints++
@@ -99,25 +100,36 @@ function loadSavedGameData() {
     //for>if/if/else>if/for>if... oh no
     for(i=0;i<Achievements.length;i++) {
         let currentChev = allAchievements[i] //currentChev is an object
-        let isOwned = currentChev.owned
-        let chevName = Achievements[i] //same obj name, so we can do something a little strange to get the result want
-
-        chevName.owned = isOwned
+        if (currentChev.owned === true) {
+            for (e=0; e<allAchievements.length; e++) {
+                //make sure the notification doesn't fire
+                if (allAchievements[e].name === currentChev.name) {
+                    allAchievements[e].noNotify = true
+                    //since the notify method checks for .noNotify to be false, this should prevent the issue
+                }
+            }
+        }
     }
+
     for(i=0;i<upgrades.length;i++) {
-        let currentUpgradeIndex = allUpgrades[i] //live obj
-        currentUpgradeIndex.owned = upgrades[i].owned //set the live obj to the owned value of the stored
-        let effect = currentUpgradeIndex.effect //get the effect of the stored obj
-        let e = currentUpgradeIndex.affectedBuilding.dashPointsEarnedPerSecond
-        e+=Math.ceil((effect/100)*e) //apply the effect to the building
+        let currentUpgrade = upgrades[i] //current saved obj in the loop
+        if (currentUpgrade.shown === true && currentUpgrade.owned === false) {
+            //if we don't own it but we have the pre req to show it, then show it
+            currentUpgrade.showUpgrade()
+        } else if (currentUpgrade.owned === true) {
+            //if we owned it previously, load its effect
+            let effect = currentUpgrade.effect //get the effect of the stored obj
+            let e = currentUpgrade.affectedBuilding.dashPointsEarnedPerSecond
+            e+=Math.ceil((effect/100)*e) //apply the effect to the building
+        }
     }
 
     document.getElementById("dashPointsDisplay").innerHTML = gameDataArray[0]
     document.getElementById("DPPSDisplay").innerHTML = gameDataArray[1]
     document.getElementById("repPointsDisplay").innerHTML = gameDataArray[2]
     document.getElementById("RPPSDisplay").innerHTML = gameDataArray[3]
-    dashPoints=gameDataArray[0]
-    dashPointsPerSecond=gameDataArray[1]
+    dashPoints = gameDataArray[0]
+    dashPointsPerSecond = gameDataArray[1]
     repPoints = gameDataArray[2]
     repPointsPerSecond = gameDataArray[3]
 
@@ -125,7 +137,7 @@ function loadSavedGameData() {
         document.getElementById("repPointsDisplay").style = "visibility: visible"
         document.getElementById("RPPSDisplay").style = "visibility: visible"
     }
-
+    //being the save data loop
     saveGameData()
 }
 function saveGameData() {
@@ -212,6 +224,21 @@ WORLD DOMINATION IMPOSED YOU PECC
 have a nice day 💠
 */
 checkSaveData()
+window.addEventListener("keydown", ()=>{
+    if(event.which === 17) {
+        bulkBuying = 10
+        //console.log(bulkBuying)
+    } else if(event.which === 16) {
+        bulkBuying = 50
+    }
+})
+window.addEventListener("keyup", _=>{
+    if(event.which === 17) {
+        bulkBuying = 0
+    } else if(event.which === 16) {
+        bulkBuying = 0
+    }
+})
 console.warn("NOTICE:"+"\n"+"This game is still in HEAVY BETA!!" + "\n" + 
 "Please be mindfull of any bugs or issues you may run into." + "\n" + 
 "Please be careful when playing around with the code, it's not the best code in the world")
