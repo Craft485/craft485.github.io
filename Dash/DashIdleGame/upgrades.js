@@ -8,6 +8,7 @@ class upgrade{constructor(name="", cost=0, affectedBuilding=Object, affectedBuil
     this.varName = varName
     this.reqInt = affectedBuildingInt
     this.owned = false
+    this.shown = false
     
     this.buy = ()=>{
         if (dashPoints>=this.cost) {
@@ -39,8 +40,8 @@ class upgrade{constructor(name="", cost=0, affectedBuilding=Object, affectedBuil
     }
 
     this.showUpgrade = ()=>{
-        if(this.owned===false) {
-            this.owned=true
+        if(this.shown===false) {
+            this.shown=true
             let upgradeDisplay = document.getElementById("upgradeDisplay")
             //create the button which will be a wrapper for the rest of the upgrade
             let newUpgrade = document.createElement("button")
