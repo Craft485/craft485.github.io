@@ -7,6 +7,8 @@ class achievement{constructor(name="", neededBuilding=Object, neededBuildingAmou
 
     this.description = desc
 
+    this.noNotify = false
+
     this.owned = false
 
     this.earn = ()=>{
@@ -25,25 +27,29 @@ class achievement{constructor(name="", neededBuilding=Object, neededBuildingAmou
     }
     
     this.notify = (displayName)=>{
-        let notifDisplay = document.getElementById("notificationBarWrapper")
-    
-        let newNotif = document.createElement('div')
-        newNotif.setAttribute('style', "color: gold; border-style: solid; border-width: medium; text-align: center") 
+        if (this.noNotify === false) {
+            let notifDisplay = document.getElementById("notificationBarWrapper")
+        
+            let newNotif = document.createElement('div')
+            newNotif.setAttribute('style', "color: gold; border-style: solid; border-width: medium; text-align: center") 
 
-        let newNotif_Text = document.createElement('p')
-        newNotif_Text.innerHTML = displayName
+            let newNotif_Text = document.createElement('p')
+            newNotif_Text.innerHTML = displayName
 
-        let newNotif_Title = document.createElement("h1")
-        newNotif_Title.innerHTML = "New Achievement Unlocked!"
-    
-        newNotif.appendChild(newNotif_Title)
-        newNotif.appendChild(newNotif_Text)
+            let newNotif_Title = document.createElement("h1")
+            newNotif_Title.innerHTML = "New Achievement Unlocked!"
+        
+            newNotif.appendChild(newNotif_Title)
+            newNotif.appendChild(newNotif_Text)
 
-        notifDisplay.appendChild(newNotif)
-    
-        setTimeout(()=>{
-            notifDisplay.removeChild(newNotif)
-        }, 3000)
+            notifDisplay.appendChild(newNotif)
+        
+            setTimeout(()=>{
+                notifDisplay.removeChild(newNotif)
+            }, 3000)
+        } else {
+            return
+        }
     }
 
     this.showDescription = ()=>{
