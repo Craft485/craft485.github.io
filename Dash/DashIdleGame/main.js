@@ -98,16 +98,12 @@ function loadSavedGameData() {
     }
     //thats a big for loop dear god lets not do that again
     //for>if/if/else>if/for>if... oh no
-    for(i=0;i<Achievements.length;i++) {
-        let currentChev = allAchievements[i] //currentChev is an object
-        if (currentChev.owned === true) {
-            for (e=0; e<allAchievements.length; e++) {
-                //make sure the notification doesn't fire
-                if (allAchievements[e].name === currentChev.name) {
-                    allAchievements[e].noNotify = true
-                    //since the notify method checks for .noNotify to be false, this should prevent the issue
-                }
-            }
+    
+    for (e = 0; e < allAchievements.length; e++) {
+        // if the saved chev is owned
+        if (Achievements[e].owned === true) {
+            // then don't have a notification
+            allAchievements[e].noNotify = true
         }
     }
 
