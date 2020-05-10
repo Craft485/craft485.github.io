@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Craft"/>
+    <title>Idle Dash</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="icon" href="./src/images/icon.PNG"/>
+    <script type="text/Javascript">
+    window.addEventListener("keydown", (e) => {
+        if (e.which===13) {
+            e.preventDefault()
+        }
+    })  
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    </script>
+    <script type="text/Javascript" defer src="./src/scripts/loadDoc.mjs"></script>
+    <script type="text/Javascript" defer src="./src/scripts/buildingConstructor.mjs"></script>
+    <script type="text/Javascript" defer src="./src/scripts/upgradeConstructor.mjs"></script>
+    <script type="text/Javascript" defer src="index.js"></script>
+</head>
+<body>
+    <noscript>This Game Requires You To Have Javascript Enabled</noscript>
+    <section class="main-wrapper">
+        <div class="currencydisplay">
+            <p>Dash Points: <span id="dp">0</span></p>
+            <p class="secondarycurrency">Rep Points: <span id="rp">0</span></p>
+            <br>
+            <p class="cps">Dash Points Per Second: <span id="dpps">0</span></p>
+            <br>
+            <p class="cps secondarycurrency">Rep Points Per Second: <span id="rpps">0</span></p>
+            <input class="btn-main" type="button" value="Earn Dash Point"/>
+        </div>
+        <br>
+        <br>
+        <div class="up-dis">
+            <!--Upgrades-->
+        </div>
+        <br>
+        <div class="bd-dis">
+            <!--Buildings-->
+        </div>
+        <div class="ac-dis">
+            <!--Achievements-->
+        </div>
+    </section>
+</body>
+</html>

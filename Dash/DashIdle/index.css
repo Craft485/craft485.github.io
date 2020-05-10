@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto&display=swap');
+:root {
+    --transition-speed: 200ms;
+    --anim-speed: 1s;
+}
+:focus {
+    outline: none;
+}
+* {
+    user-select: none;
+    font-family: 'Nunito', 'Roboto';
+}
+html {
+    display: contents;
+    height: 100%;
+}
+body {
+    background-color: grey;
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+}
+p {
+    margin: 0;
+}
+button:hover, input[type=button]:hover{
+    cursor: pointer;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+}
+.main-wrapper {
+    height: 100%;
+}
+.currencydisplay {
+    float: left;
+    width: fit-content;
+    margin: 0;
+}
+.secondarycurrency {
+    display: none;
+}
+.bd {
+    border-radius: 30px;
+    border: inset;
+}
+.bd:active {
+    animation: button-click var(--anim-speed) linear;
+    -moz-animation: button-click var(--anim-speed) linear;
+    -webkit-animation: button-click var(--anim-speed) linear;
+}
+.bd-dis, .up-dis {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: inherit;
+}
+.bd-dis:nth-child(odd) {
+    background-color: darkgray;
+}
+.ac-dis {
+    width: inherit;
+}
+.ac-dis:nth-child(odd) {
+    background-color: darkgrey;
+}
+.btn-main {
+    border-radius: 12px;
+    border: none;
+    float: left;
+}
+.btn-main:active {
+    animation: button-click var(--anim-speed) linear;
+    -moz-animation: button-click var(--anim-speed) linear;
+    -webkit-animation: button-click var(--anim-speed) linear;
+}
+@keyframes button-click {
+    0% {
+        transform: scale(0.75, 0.75);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+@-webkit-keyframes button-click {
+    0% {
+        transform: scale(0.75, 0.75);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+@-moz-keyframes button-click {
+    0% {
+        transform: scale(0.75, 0.75);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
