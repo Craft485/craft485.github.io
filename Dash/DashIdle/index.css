@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .bd {
     border-radius: 30px;
-    border: inset;
+    border: outset;
 }
 .bd:active {
     animation: button-click var(--anim-speed) linear;
@@ -59,6 +59,16 @@ h1, h2, h3, h4, h5, h6 {
 .bd-dis:nth-child(odd) {
     background-color: darkgray;
 }
+.up-dis {
+    border: thin, dotted, black;
+    background-clip: padding-box;
+}
+.up-item {
+    border-radius: 30px;
+    padding: 5px;
+    border: outset;
+    background-repeat: no-repeat;
+}
 .ac-dis {
     width: inherit;
 }
@@ -67,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-main {
     border-radius: 12px;
-    border: inset;
+    border: outset;
     float: left;
 }
 .btn-main:active {
