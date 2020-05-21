@@ -26,15 +26,17 @@ class building {
     }
 }
 
-const message = new building("SendAMessage", null, [15,0], 2, 0)
+const message = new building("Send A Message", null, [15,0], 2, 0)
 
 const buildings = [message]
 
 !function () {
-    for (i in buildings) {
-        let element = document.getElementById(buildings[i].name+"_ID")
-        if (element) element.onclick = _=>buildings[i].buy()
-    }
+    setTimeout(()=>{
+        for (i in buildings) {
+            let element = document.getElementById(buildings[i].name+"_ID")
+            if (element) element.onclick = _=>buildings[i].buy()
+        }
+    }, 1000)
 }()
 
 function loadMissingBuildingData() {
