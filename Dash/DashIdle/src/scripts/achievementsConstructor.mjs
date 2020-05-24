@@ -20,9 +20,15 @@ class achievement {
                 this.owned = true
                 const self = document.getElementsByClassName("achieve")[index]
                 self.src = this.icon
-                self.setAttribute("data-toggle", "tooltip")
-                self.setAttribute("data-placement", "top")
-                self.setAttribute("title", this.desc)
+                // self.setAttribute("data-toggle", "tooltip")
+                // self.setAttribute("data-placement", "top")
+                // self.setAttribute("title", this.desc)
+                self.onmouseenter = () => {
+                    const tooltip = document.createElement("div")
+                    tooltip.className = "tooltip"
+                    tooltip.innerHTML = this.desc
+                    self.onmouseleave = e => tooltip.remove()
+                }
             }
         }
     }

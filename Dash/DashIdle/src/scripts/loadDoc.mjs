@@ -46,6 +46,7 @@ let user = {
             let container = document.createElement("button")
             container.id = building.name+"_ID"
             container.className = "bd"
+            container.onclick = _ => buildings[i].buy()
 
             let owned = document.createElement("span")
             owned.innerText = building.owned
@@ -82,22 +83,22 @@ let user = {
             let parent = document.getElementsByClassName("bd-dis")[0]
 
             parent.appendChild(container)
+
+            container.onmouseenter = () => {
+                const tooltip = document.createElement("div")
+                tooltip.id = this.name+"tp"
+                tooltip.className = "tooltip"
+                tooltip.innerHTML = this.description
+                parent.appendChild(tooltip)
+                container.onmouseleave = e => tooltip.remove()
+            }
         }
         u()
     }
     function u() {
         console.log("#3.x-u Loading...")
         const parent = document.getElementsByClassName("up-dis")[0]
-        for (i in user.upgrades) {
-            let upgrade = user.upgrades[i]
-            if (upgrade.isShown && !upgrade.owned) {
-                let f = document.createElement("div")
-                f.setAttribute("id", `${upgrade.name}_dis`)
-                f.innerText = `${upgrade.name} \n Cost: ${upgrade.cost}`
-                f.onclick = upgrade.buy()
-                parent.appendChild(f)
-            }
-        }
+        for (i in user.upgrades) if (user.upgrades[i].isShown && !user.upgrades[i].owned) user.upgrades[i].earn()
         // a()
     }
     // function a() {

@@ -89,6 +89,15 @@ function loadMissingBuildingData() {
                 container.appendChild(cost)
     
                 parent.appendChild(container)
+
+                container.onmouseenter = () => {
+                    const tooltip = document.createElement("div")
+                    tooltip.id = this.name+"tp"
+                    tooltip.className = "tooltip"
+                    tooltip.innerHTML = this.description
+                    parent.appendChild(tooltip)
+                    container.onmouseleave = e => tooltip.remove()
+                }
             }
         }
     }

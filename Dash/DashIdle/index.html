@@ -18,8 +18,9 @@
         if (e.which===13) {
             e.preventDefault()
         }
-    })  
+    })
     // $(document).ready(function(){
+    //     // Overide trigger event
     //     $('[data-toggle="tooltip"]').tooltip({trigger:'hover', html: true})
     // })
     </script>
@@ -29,7 +30,7 @@
     <script type="text/Javascript" defer src="index.js"></script>
 </head>
 <body>
-    <noscript>This Game Requires You To Have Javascript Enabled</noscript>
+    <noscript style="color: red;">This Game Requires You To Have Javascript Enabled</noscript>
     <section class="main-wrapper">
         <div class="currencydisplay">
             <p>Dash Points: <span id="dp">0</span></p>
@@ -53,5 +54,6 @@
             <!--Achievements-->
         </div>
     </section>
+    <!-- <span id="settings" class="glyphicon glyphicon-cog" style="float: right; position: relative; top: auto;"></span> -->
 </body>
 </html>
