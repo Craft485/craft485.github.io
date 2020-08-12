@@ -20,6 +20,10 @@
         repPoints: 0,
         repPontsPerSecond: 0
     }
+    function reset() {
+        window.localStorage.removeItem("RGFzaCBOZXQ=")
+        window.location.reload(true)
+    }
     </script>
     <!-- <script>
     window.onkeydown = (e => {
@@ -42,6 +46,7 @@
         <p id="rep" class="locked currency">Rep Points: <span id="rp">0</span> | Rep Points Per Second: <span id="rpps">0</span></p>
         <button class="button-main"><img id="btn-main" src="./images/favicon.ico"></button> <br>
         <div id="achievements" class="locked"></div>
+        <button id="reset" onclick="reset()">Reset</button>
         <div id="notif" style="visibility: hidden;"></div>
     </div>
 </body>

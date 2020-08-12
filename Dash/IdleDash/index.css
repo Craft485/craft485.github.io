@@ -59,6 +59,14 @@ html {background: gray !important;}
     overflow: auto;
 }
 
+#reset {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(161, 25, 52) !important;
+    outline: none;
+}
+
 #upgrade-disp {
     float: right;
     border: thin solid black;

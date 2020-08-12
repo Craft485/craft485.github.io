@@ -23,10 +23,11 @@ class Building {
             // console.log(this)
             if (Game._DashPoints < this.cost.dp || Game._RepPoints < this.cost.rp) return
             
+            Game._DashPoints -= this.cost.dp
+
             this.owned++
             this.cost.dp = Math.ceil((Math.pow(this.owned, 2) / 4) + 25)
             
-            Game._DashPoints -= this.cost.dp
             document.getElementById("dp").innerText = new Intl.NumberFormat().format(Math.floor(Game._DashPoints))
             document.getElementById(`${this.name}DPCost`).innerText = this.cost.dp
 
