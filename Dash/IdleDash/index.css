@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+* {
+    font-family: 'Nunito', Arial !important;
+    /* Standards people, why can't browsers have the same property name standards, 
+    one shouldn't need to write extra css in order for this to work in different but still modern browsers */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent !important;
+}
+
+img {-webkit-user-drag: none;}
+
+button:focus {outline: none !important;}
+
+body {
+    background-color: transparent !important;
+    height: 100%;
+}
+
+html {background: gray !important;}
+
+.button-main {
+    border-style: none !important;
+    transition: all .2s ease-in;
+}
+.button-main:active {
+    border-style: none !important;
+    transform: scale(1.1);
+}
+.button-main:focus {outline: none !important;}
+
+.build-buy {
+    border: medium ridge black;
+}
+
+.currency {
+    margin: 0;
+    padding: 1rem;
+}
+
+.locked {
+    visibility: hidden;
+}
+
+#main-content-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: inherit;
+    width: inherit;
+}
+
+#build-disp {
+    margin-top: 1rem;
+    float: right;
+    border: thin solid black;
+    height: inherit;
+    overflow: auto;
+}
+
+#upgrade-disp {
+    float: right;
+    border: thin solid black;
+    margin-right: 1rem;
+}
+#upgrade-disp:first-child {
+    border-bottom: thin solid black;
+    padding: 1rem 15px 5px;
+}
+#upgrade-disp:not(:first-child) {
+    color: blue; /* Placeholder */
+}
+
+#notif {
+    position: absolute;
+    z-index: 2;
+    border: thin solid goldenrod;
+    bottom: 0;
+    margin-bottom: 1rem;
+    margin-left: 47%;
+    padding: 5px;
+}
+
+.build, .building {
+    padding-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+}
+
+.notif-content {
+    text-align: center;
+    color: ivory;
+}
+
+/* Overiding Bootstrap CSS because otherwise we have awkward tooltip placement */
+.tooltip {
+    left: -7.5% !important;
+}
+
+.arrow {
+    display: none !important;
+}
+
+.tooltip-inner {
+    background-color: #a9a9a9 !important;
+    color: whitesmoke;
+}
