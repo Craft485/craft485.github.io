@@ -1,3 +1,4 @@
+@charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
 * {
@@ -70,14 +71,18 @@ html {background: gray !important;}
 #upgrade-disp {
     float: right;
     border: thin solid black;
+    margin-top: 1rem;
     margin-right: 1rem;
+    text-align: center !important;
 }
 #upgrade-disp:first-child {
     border-bottom: thin solid black;
     padding: 1rem 15px 5px;
 }
-#upgrade-disp:not(:first-child) {
-    color: blue; /* Placeholder */
+.upgrade {
+    width: 80%;
+    text-align: inherit;
+    margin-bottom: 5px;
 }
 
 #notif {

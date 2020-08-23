@@ -87,5 +87,5 @@ class Building {
 const rulebook = new Building("Rulebook", "The lay of the land, a set of rules to follow during your stay in Dash Net", [25, 0], null, 0, [0.1, 0])
 const selfroles = new Building("Self Roles", "Which shall you choose? The Pillow, or the Chip of Life, or, maybe, Art Fan?", [50, 0], rulebook, 10, [3, 0])
 
-let list = [rulebook, selfroles]
+Game.list = [rulebook, selfroles]
 // Game.buildings = list

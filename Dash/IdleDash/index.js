@@ -8,16 +8,17 @@ function load() {
     // If no save, create one and 
     if (!save) return window.localStorage.setItem("RGFzaCBOZXQ=", JSON.stringify(Game))
     Game = save
-    list = save.buildings
-    if (save.buildings[0].shown) document.getElementById("build-disp").className = ""
+    // Game.list = save.list
+    if (save.list[0].shown) document.getElementById("build-disp").className = ""
     // Load buildings
     const buildingParent = document.getElementById("build-disp")
-    for (let i in save.buildings) {
-        if (save.buildings[i].shown) {
-            const building = save.buildings[i]
-            list[i].cost = building.cost
-            list[i].owned = building.owned
-            list[i].shown = building.shown
+    // const upgradeParent = document.getElementById("upgrade-disp")
+    for (let i in save.list) {
+        if (save.list[i].shown) {
+            const building = save.list[i]
+            Game.list[i].cost = building.cost
+            Game.list[i].owned = building.owned
+            Game.list[i].shown = building.shown
 
             // Create container
             const container = document.createElement("div")
@@ -42,7 +43,7 @@ function load() {
             container.appendChild(text)
             // Append to parent
             buildingParent.appendChild(container)
-            document.getElementById(`${building.name}Buy`).onclick = list[i].buy
+            document.getElementById(`${building.name}Buy`).onclick = Game.list[i].buy
             // Tooltip things
             container.setAttribute('data-toggle', 'tooltip')
             container.setAttribute('data-placement', 'left')
@@ -50,11 +51,13 @@ function load() {
             $('[data-toggle="tooltip"]').tooltip({trigger: 'hover', html: true})
         }
     }
-    // Load upgrades
+    // Load upgrades, this seems dead simple... will it work though? 
+    for (i in save.upgrades) upgradeList[i].earn()
 }
 
 function save() {
-    Game.buildings = list
+    // Game.buildings = list
+    // Game.upgrades = upgradeList
     window.localStorage.setItem("RGFzaCBOZXQ=", JSON.stringify(Game))
     // Create notif
     const container = document.getElementById('notif')
@@ -73,15 +76,16 @@ function save() {
 // Why are you reading this
 function attemptEarns() {
     // This function is going to be a mess
-    if (Game._DashPoints >= 20 && !(list[0].shown)) {
-        list[0].shown = true
-        list[0].earn()
+    if (Game._DashPoints >= 20 && !(Game.list[0].shown)) {
+        Game.list[0].shown = true
+        Game.list[0].earn()
         document.getElementById("build-disp").className = ""
     }
-    for (let i = 1; i < list.length; i++) {
-        const prev = list[i - 1]
-        if (prev.owned >= list[i].previousAmount && !(list[i].shown)) list[i].show()
+    for (let i = 1; i < Game.list.length; i++) {
+        const prev = Game.list[i - 1]
+        if (prev.owned >= Game.list[i].previousAmount && !(Game.list[i].shown)) Game.list[i].show()
     }
+    for (i in upgradeList) upgradeList[i].earn() // Atempt to earn each upgrade (NOT at all efficient but I can come back to this later)
 }
 
 function actionClick() {
