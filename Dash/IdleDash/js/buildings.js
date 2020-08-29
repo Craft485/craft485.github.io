@@ -80,7 +80,7 @@ class Building {
                 placement: 'left',
                 container: container,
                 html: true,
-                title: `Dash Points Per Second: ${this.perSecond.dp}\n${(this.perSecond.rp > 0 ? `Rep Points Per Second: ${this.perSecond.rp}\n` : "\n")}Owned: ${this.owned}\n<br><quote>${this.desc}</quote>`
+                title: `Dash Points Per Second: ${this.perSecond.dp}\n${(this.perSecond.rp > 0 ? `Rep Points Per Second: ${this.perSecond.rp}\n` : "\n")}Owned: ${this.owned}\n<br><small>${this.desc}</small>`
             })
         }
         this.show = this.earn

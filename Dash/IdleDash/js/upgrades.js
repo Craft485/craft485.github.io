@@ -48,10 +48,10 @@ class Upgrade {
             // Tooltip things
             $(`button#${this.name}Disp`).tooltip({
                 trigger: 'hover',
-                placement: 'right',
+                placement: 'left',
                 container: upgrade,
                 html: true,
-                title: `${this.name}<br>Cost:<br>${this.cost.dp}${(this.cost.rp > 0 ? this.cost.rp+"<br>" : "<br>")}<quote>${this.desc}</quote>`
+                title: `${this.name}<br>Cost:<br>${this.cost.dp}${(this.cost.rp > 0 ? this.cost.rp+"<br>" : "<br>")}<small>${this.desc}</small>`
             })
         }
     }

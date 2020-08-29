@@ -112,7 +112,7 @@ html {background: gray !important;}
 }
 
 .upgrade:hover > .tooltip {
-    left: -12% !important;
+    left: -1.5% !important;
 }
 
 .arrow {
