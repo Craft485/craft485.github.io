@@ -38,6 +38,7 @@ class Upgrade {
             let upgrade = document.createElement('button')
             upgrade.id = `${this.name}Disp`
             upgrade.className = "upgrade"
+            upgrade.setAttribute('role', 'upgrade')
 
             upgrade.innerText = `${this.name}\nCost:\n${this.cost.dp}\n${(this.cost.rp > 0 ? this.cost.rp+"\n" : "")}`
 
@@ -46,14 +47,12 @@ class Upgrade {
             container.appendChild(upgrade)
             // Tooltip things
             $(`button#${this.name}Disp`).tooltip({
-                html: true,
                 trigger: 'hover',
                 placement: 'right',
-                //offset: 20,
-                container: container,
-                title: `${this.name}<br>Cost:<br>${this.cost.dp}<br>${(this.cost.rp > 0 ? this.cost.rp+"<br>" : "")}<small>${this.desc}</small>`
+                container: upgrade,
+                html: true,
+                title: `${this.name}<br>Cost:<br>${this.cost.dp}${(this.cost.rp > 0 ? this.cost.rp+"<br>" : "<br>")}<quote>${this.desc}</quote>`
             })
-            console.log(container.lastChild)
         }
     }
 }

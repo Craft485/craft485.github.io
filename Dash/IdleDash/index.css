@@ -88,7 +88,6 @@ html {background: gray !important;}
 #notif {
     position: absolute;
     z-index: 2;
-    border: thin solid goldenrod;
     bottom: 0;
     margin-bottom: 1rem;
     margin-left: 47%;
@@ -104,11 +103,16 @@ html {background: gray !important;}
 .notif-content {
     text-align: center;
     color: ivory;
+    border: thin solid goldenrod;
 }
 
 /* Overiding Bootstrap CSS because otherwise we have awkward tooltip placement */
-.tooltip {
+.build:hover > .tooltip {
     left: -7.5% !important;
+}
+
+.upgrade:hover > .tooltip {
+    left: -12% !important;
 }
 
 .arrow {

@@ -70,14 +70,18 @@ class Building {
             else text.innerHTML += `<span>\u200b</span></span>`
             text.innerHTML += `</button>`
             container.appendChild(text)
+            container.setAttribute('role', 'building')
             // Append to parent
             parent.appendChild(container)
             document.getElementById(`${this.name}Buy`).onclick = this.buy
             // Tooltip things
-            container.setAttribute('data-toggle', 'tooltip')
-            container.setAttribute('data-placement', 'left')
-            container.setAttribute('title', `Dash Points Per Second: ${this.perSecond.dp}\n${(this.perSecond.rp > 0 ? `Rep Points Per Second: ${this.perSecond.rp}\n` : "\n")}Owned: ${this.owned}\n<br><small>${this.desc}</small>`)
-            $('[data-toggle="tooltip"]').tooltip({trigger: 'hover', html: true})
+            $(`div#${this.name}Disp`).tooltip({
+                trigger: 'hover',
+                placement: 'left',
+                container: container,
+                html: true,
+                title: `Dash Points Per Second: ${this.perSecond.dp}\n${(this.perSecond.rp > 0 ? `Rep Points Per Second: ${this.perSecond.rp}\n` : "\n")}Owned: ${this.owned}\n<br><quote>${this.desc}</quote>`
+            })
         }
         this.show = this.earn
     }
@@ -85,7 +89,7 @@ class Building {
 }
 
 const rulebook = new Building("Rulebook", "The lay of the land, a set of rules to follow during your stay in Dash Net", [25, 0], null, 0, [0.1, 0])
-const selfroles = new Building("Self Roles", "Which shall you choose? The Pillow, or the Chip of Life, or, maybe, Art Fan?", [50, 0], rulebook, 10, [3, 0])
+const selfroles = new Building("Self-Roles", "Which shall you choose? The Pillow, or the Chip of Life, or, maybe, Art Fan?", [50, 0], rulebook, 10, [3, 0])
 
 Game.list = [rulebook, selfroles]
 // Game.buildings = list
