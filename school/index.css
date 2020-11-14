@@ -1,0 +1,37 @@
+* {
+    user-select: none;
+}
+
+body {
+    height: 100%;
+    background-color: darkgray;
+    text-align: center;
+}
+
+a {
+    text-decoration: none !important;
+    z-index: 3;
+    width: 90%;
+    height: 100%;
+}
+
+#container-main {
+    height: 100%;
+    margin: 0 35%;
+    display: flex;
+    flex-direction: column;
+    border: thin solid black;
+}
+
+button[role="class"] {
+    width: inherit;
+    background: transparent !important;
+    border: thin black solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+button[role="class"]:hover {
+    cursor: pointer;
+}
