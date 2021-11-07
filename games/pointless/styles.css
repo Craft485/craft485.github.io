@@ -1,0 +1,29 @@
+body {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #bdbdbd;
+    user-select: none;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+button#pointless {
+    background: transparent;
+    color: #bdbdbd;
+    border: outset;
+    padding: 5px;
+    font-weight: 800;
+    margin-left: 1%;
+    margin-top: 2%;
+}
+
+button:hover {
+    cursor: pointer;
+}
